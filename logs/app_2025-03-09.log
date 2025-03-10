@@ -1,0 +1,175 @@
+2025-03-09 19:19:09 - INFO - Initializing main window
+2025-03-09 19:19:09 - INFO - Initializing UI Service
+2025-03-09 19:19:09 - INFO - DatabaseService initialized
+2025-03-09 19:19:09 - INFO - Initializing database
+2025-03-09 19:19:09 - INFO - Database initialized successfully
+2025-03-09 19:19:09 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 19:19:09 - INFO - UI Service initialization complete
+2025-03-09 19:19:09 - INFO - Initializing system tray icon
+2025-03-09 19:19:09 - INFO - System tray icon initialized
+2025-03-09 19:19:09 - INFO - Setting up system tray menu and actions
+2025-03-09 19:23:11 - INFO - Initializing main window
+2025-03-09 19:23:11 - INFO - Initializing UI Service
+2025-03-09 19:23:11 - INFO - DatabaseService initialized
+2025-03-09 19:23:11 - INFO - Initializing database
+2025-03-09 19:23:11 - INFO - Database initialized successfully
+2025-03-09 19:23:11 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 19:23:11 - INFO - UI Service initialization complete
+2025-03-09 19:23:11 - INFO - Initializing system tray icon
+2025-03-09 19:23:11 - INFO - System tray icon initialized
+2025-03-09 19:23:11 - INFO - Setting up system tray menu and actions
+2025-03-09 19:25:07 - INFO - Initializing main window
+2025-03-09 19:25:07 - INFO - Initializing UI Service
+2025-03-09 19:25:07 - INFO - DatabaseService initialized
+2025-03-09 19:25:07 - INFO - Initializing database
+2025-03-09 19:25:07 - INFO - Database initialized successfully
+2025-03-09 19:25:07 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 19:25:07 - INFO - UI Service initialization complete
+2025-03-09 19:25:07 - INFO - Initializing system tray icon
+2025-03-09 19:25:07 - INFO - System tray icon initialized
+2025-03-09 19:25:07 - INFO - Setting up system tray menu and actions
+2025-03-09 19:25:07 - INFO - System tray icon is now visible
+2025-03-09 19:25:07 - INFO - Retrieving unsynced tasks
+2025-03-09 19:25:07 - INFO - Retrieving unsynced tasks
+2025-03-09 19:25:07 - INFO - Main window initialization complete
+2025-03-09 19:25:41 - INFO - Retrieving unsynced tasks
+2025-03-09 19:25:41 - INFO - Application closing - no issues
+2025-03-09 19:25:41 - INFO - Application shut down
+2025-03-09 19:45:42 - INFO - Initializing main window
+2025-03-09 19:45:42 - INFO - Initializing UI Service
+2025-03-09 19:45:42 - INFO - DatabaseService initialized
+2025-03-09 19:45:42 - INFO - Initializing database
+2025-03-09 19:45:42 - INFO - Database initialized successfully
+2025-03-09 19:45:42 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 19:45:42 - INFO - UI Service initialization complete
+2025-03-09 19:45:42 - INFO - Initializing system tray icon
+2025-03-09 19:45:42 - INFO - System tray icon initialized
+2025-03-09 19:45:42 - INFO - Setting up system tray menu and actions
+2025-03-09 19:45:42 - INFO - System tray icon is now visible
+2025-03-09 19:45:42 - INFO - Retrieving unsynced tasks
+2025-03-09 19:45:42 - INFO - Retrieving unsynced tasks
+2025-03-09 19:45:42 - INFO - Main window initialization complete
+2025-03-09 19:49:30 - INFO - New task created: 'test task' with tags: ['Development', 'Planning', 'Documentation']
+2025-03-09 19:49:30 - INFO - Starting new task: 'test task'
+2025-03-09 19:49:30 - INFO - Timer started for task: ''
+2025-03-09 19:49:30 - INFO - Timer started for task: ''
+2025-03-09 19:49:30 - INFO - Retrieving unsynced tasks
+2025-03-09 19:49:30 - INFO - Task 'test task' started successfully
+2025-03-09 19:49:40 - INFO - Pausing task: ''
+2025-03-09 19:49:40 - INFO - Timer paused for task: ''. Reason: USER
+2025-03-09 19:49:40 - INFO - Timer paused by user
+2025-03-09 19:49:40 - INFO - Retrieving unsynced tasks
+2025-03-09 19:49:40 - INFO - Task '' paused successfully
+2025-03-09 19:49:48 - INFO - Resuming task: ''
+2025-03-09 19:49:48 - INFO - Timer resumed for task: '' from PAUSED state
+2025-03-09 19:49:48 - INFO - Timer started for task: ''
+2025-03-09 19:49:48 - INFO - Retrieving unsynced tasks
+2025-03-09 19:49:48 - INFO - Task '' resumed successfully
+2025-03-09 19:49:57 - INFO - Stopping current task
+2025-03-09 19:49:57 - INFO - Stopping task: ''
+2025-03-09 19:49:57 - INFO - Timer stopped for task: ''. Total time: 0.01 hours
+2025-03-09 19:49:57 - INFO - Timer stopped
+2025-03-09 19:49:57 - INFO - Retrieving unsynced tasks
+2025-03-09 19:49:57 - INFO - Retrieving unsynced tasks
+2025-03-09 19:49:57 - INFO - Task '' stopped. Elapsed time: 0.01 hours
+2025-03-09 19:49:57 - INFO - Adding new session task:  on 2025-03-09 (0.005286131567425198 hours)
+2025-03-09 19:49:57 - INFO - Task saved to database with ID: 3
+2025-03-09 19:49:57 - INFO - Task stopped and saved to database
+2025-03-09 19:49:57 - INFO - Retrieving unsynced tasks
+2025-03-09 19:49:57 - INFO - Retrieving unsynced tasks
+2025-03-09 19:50:01 - INFO - Starting sync to Google Sheets
+2025-03-09 19:50:01 - INFO - Starting sync to Google Sheets
+2025-03-09 19:50:01 - INFO - Retrieving unsynced tasks
+2025-03-09 19:50:01 - INFO - Found 1 tasks to sync
+2025-03-09 19:50:01 - INFO - Authenticating with Google Sheets API
+2025-03-09 19:50:02 - INFO - Authentication successful
+2025-03-09 19:50:02 - INFO - Appending row to spreadsheet: ['2025-03-09', 0.005286131567425198, '', '', '']
+2025-03-09 19:50:02 - INFO - Marking task ID 3 as synced
+2025-03-09 19:50:02 - INFO - Successfully synced 1 tasks to Google Sheets
+2025-03-09 19:50:02 - ERROR - Could not show notification: QStyle.standardIcon() is abstract and cannot be called as an unbound method
+2025-03-09 19:50:02 - INFO - Tasks successfully synced to Google Sheets
+2025-03-09 19:50:04 - INFO - Retrieving unsynced tasks
+2025-03-09 19:51:04 - INFO - Retrieving unsynced tasks
+2025-03-09 19:51:04 - INFO - Application closing - no issues
+2025-03-09 19:51:04 - INFO - Application shut down
+2025-03-09 20:00:59 - INFO - Initializing main window
+2025-03-09 20:00:59 - INFO - Initializing UI Service
+2025-03-09 20:00:59 - INFO - DatabaseService initialized
+2025-03-09 20:00:59 - INFO - Initializing database
+2025-03-09 20:00:59 - INFO - Database initialized successfully
+2025-03-09 20:00:59 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 20:00:59 - INFO - UI Service initialization complete
+2025-03-09 20:00:59 - INFO - Initializing system tray icon
+2025-03-09 20:00:59 - INFO - System tray icon initialized
+2025-03-09 20:00:59 - INFO - Setting up system tray menu and actions
+2025-03-09 20:00:59 - INFO - System tray icon is now visible
+2025-03-09 20:00:59 - INFO - Retrieving unsynced tasks
+2025-03-09 20:00:59 - INFO - Retrieving unsynced tasks
+2025-03-09 20:00:59 - INFO - Main window initialization complete
+2025-03-09 20:00:59 - INFO - Initializing floating pill widget
+2025-03-09 20:01:26 - INFO - Retrieving unsynced tasks
+2025-03-09 20:01:26 - INFO - Application closing - no issues
+2025-03-09 20:01:26 - INFO - Application shut down
+2025-03-09 20:01:32 - INFO - Initializing main window
+2025-03-09 20:01:32 - INFO - Initializing UI Service
+2025-03-09 20:01:32 - INFO - DatabaseService initialized
+2025-03-09 20:01:32 - INFO - Initializing database
+2025-03-09 20:01:32 - INFO - Database initialized successfully
+2025-03-09 20:01:32 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 20:01:32 - INFO - UI Service initialization complete
+2025-03-09 20:01:32 - INFO - Initializing system tray icon
+2025-03-09 20:01:32 - INFO - System tray icon initialized
+2025-03-09 20:01:32 - INFO - Setting up system tray menu and actions
+2025-03-09 20:01:32 - INFO - System tray icon is now visible
+2025-03-09 20:01:32 - INFO - Retrieving unsynced tasks
+2025-03-09 20:01:32 - INFO - Retrieving unsynced tasks
+2025-03-09 20:01:32 - INFO - Main window initialization complete
+2025-03-09 20:01:32 - INFO - Initializing floating pill widget
+2025-03-09 20:38:26 - INFO - Retrieving unsynced tasks
+2025-03-09 20:38:26 - INFO - Application closing - no issues
+2025-03-09 20:38:26 - INFO - Application shut down
+2025-03-09 20:59:37 - INFO - Initializing main window
+2025-03-09 20:59:37 - INFO - Initializing UI Service
+2025-03-09 20:59:37 - INFO - DatabaseService initialized
+2025-03-09 20:59:37 - INFO - Initializing database
+2025-03-09 20:59:37 - INFO - Database initialized successfully
+2025-03-09 20:59:37 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 20:59:37 - INFO - UI Service initialization complete
+2025-03-09 20:59:37 - INFO - Initializing system tray icon
+2025-03-09 20:59:37 - INFO - System tray icon initialized
+2025-03-09 20:59:37 - INFO - Setting up system tray menu and actions
+2025-03-09 20:59:37 - INFO - System tray icon is now visible
+2025-03-09 20:59:37 - INFO - Retrieving unsynced tasks
+2025-03-09 20:59:37 - INFO - Retrieving unsynced tasks
+2025-03-09 20:59:37 - INFO - Main window initialization complete
+2025-03-09 20:59:37 - INFO - Initializing floating pill widget
+2025-03-09 20:59:57 - INFO - New task created: 'Testing Task (TEST^&*%TT#*)' with tags: []
+2025-03-09 20:59:57 - INFO - Starting new task: 'Testing Task (TEST^&*%TT#*)'
+2025-03-09 20:59:57 - INFO - Timer started for task: ''
+2025-03-09 20:59:57 - INFO - Timer started for task: ''
+2025-03-09 20:59:57 - INFO - Retrieving unsynced tasks
+2025-03-09 20:59:57 - INFO - Task 'Testing Task (TEST^&*%TT#*)' started successfully
+2025-03-09 21:00:03 - INFO - Stopping current task
+2025-03-09 21:00:03 - INFO - Stopping task: ''
+2025-03-09 21:00:03 - INFO - Timer stopped for task: ''. Total time: 0.00 hours
+2025-03-09 21:00:03 - INFO - Timer stopped
+2025-03-09 21:00:03 - INFO - Retrieving unsynced tasks
+2025-03-09 21:00:03 - INFO - Retrieving unsynced tasks
+2025-03-09 21:00:03 - INFO - Task '' stopped. Elapsed time: 0.00 hours
+2025-03-09 21:00:03 - ERROR - Error saving task to database: DatabaseService.add_session_task() got an unexpected keyword argument 'description'
+2025-03-09 21:00:03 - WARNING - Failed to stop task or no task was running
+2025-03-09 21:00:33 - INFO - New task created: 'dawdawd' with tags: ['Leetcode', 'Personal Project']
+2025-03-09 21:00:33 - INFO - Starting new task: 'dawdawd'
+2025-03-09 21:00:33 - INFO - Timer started for task: ''
+2025-03-09 21:00:33 - INFO - Timer started for task: ''
+2025-03-09 21:00:33 - INFO - Retrieving unsynced tasks
+2025-03-09 21:00:33 - INFO - Task 'dawdawd' started successfully
+2025-03-09 21:00:43 - INFO - Stopping current task
+2025-03-09 21:00:43 - INFO - Stopping task: ''
+2025-03-09 21:00:43 - INFO - Timer stopped for task: ''. Total time: 0.00 hours
+2025-03-09 21:00:43 - INFO - Timer stopped
+2025-03-09 21:00:43 - INFO - Retrieving unsynced tasks
+2025-03-09 21:00:43 - INFO - Retrieving unsynced tasks
+2025-03-09 21:00:43 - INFO - Task '' stopped. Elapsed time: 0.00 hours
+2025-03-09 21:00:43 - ERROR - Error saving task to database: DatabaseService.add_session_task() got an unexpected keyword argument 'description'
+2025-03-09 21:00:43 - WARNING - Failed to stop task or no task was running

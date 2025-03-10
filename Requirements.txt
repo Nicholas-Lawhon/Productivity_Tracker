@@ -1,0 +1,5 @@
+PyQt5
+gspread
+oauth2client
+psutil
+pywin32 ; platform_system=="Windows"

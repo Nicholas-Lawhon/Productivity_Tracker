@@ -32,14 +32,16 @@ class DatabaseService:
 
             # Creates the database table
             cursor.execute('''
-            CREATE TABLE IF NOT EXISTS session_tasks (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                date TEXT NOT NULL,
-                time_elapsed REAL NOT NULL,
-                task_name TEXT NOT NULL,
-                synced_to_sheets INTEGER DEFAULT 0
-            )
-            ''')
+                    CREATE TABLE IF NOT EXISTS session_tasks (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        date TEXT NOT NULL,
+                        time_elapsed REAL NOT NULL,
+                        task_name TEXT NOT NULL,
+                        description TEXT,
+                        category TEXT,
+                        synced_to_sheets INTEGER DEFAULT 0
+                    )
+                    ''')
 
             conn.commit()  # Save the changes
             self.logger.info("Database initialized successfully")
@@ -72,9 +74,9 @@ class DatabaseService:
             # Insert the new session task
             # Note: We don't need to specify synced_to_sheets as it defaults to 0
             cursor.execute('''
-            INSERT INTO session_tasks (date, time_elapsed, task_name)
+            INSERT INTO session_tasks (date, time_elapsed, task_name, description, category)
             VALUES (?, ?, ?)
-            ''', (date, time_elapsed, task_name))
+            ''', (date, time_elapsed, task_name, description, category))
 
             # Get the ID of the inserted row
             last_row_id = cursor.lastrowid
