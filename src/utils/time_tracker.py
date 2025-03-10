@@ -45,9 +45,9 @@ class TimeTracker:
         # Last activity timestamp (for idle detection)
         self.last_activity_time = time.time()
 
-    def start(self, task_name=None):
+    def start(self, task_name=""):
         """Start the timer with an optional task name."""
-        if self.task_name:
+        if task_name:
             self.task_name = task_name
 
         if self.state == TimerState.STOPPED:

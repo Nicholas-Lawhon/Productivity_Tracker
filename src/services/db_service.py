@@ -25,46 +25,69 @@ class DatabaseService:
     def _initialize_database(self):
         """Create the session_tasks table if it doesn't exist."""
         self.logger.info("Initializing database")
+        self.logger.info(f"Database path: {self.db_path}")
         conn = None
         try:
+            # Verbose logging for path creation
+            try:
+                db_dir = os.path.dirname(self.db_path)
+                if not os.path.exists(db_dir):
+                    os.makedirs(db_dir, exist_ok=True)
+                    self.logger.info(f"Created directory: {db_dir}")
+                else:
+                    self.logger.info(f"Directory already exists: {db_dir}")
+            except Exception as e:
+                self.logger.critical(f"Failed to create database directory: {e}")
+                raise
+
             conn = sqlite3.connect(self.db_path)
             cursor = conn.cursor()
 
             # Creates the database table
             cursor.execute('''
-                    CREATE TABLE IF NOT EXISTS session_tasks (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        date TEXT NOT NULL,
-                        time_elapsed REAL NOT NULL,
-                        task_name TEXT NOT NULL,
-                        description TEXT,
-                        category TEXT,
-                        synced_to_sheets INTEGER DEFAULT 0
-                    )
-                    ''')
+            CREATE TABLE IF NOT EXISTS session_tasks (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                date TEXT NOT NULL,
+                hours REAL NOT NULL,
+                task TEXT NOT NULL,
+                description TEXT,
+                tags TEXT,
+                synced_to_sheets INTEGER DEFAULT 0
+            )
+            ''')
 
             conn.commit()  # Save the changes
             self.logger.info("Database initialized successfully")
+
+            # Verify table exists
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='session_tasks'")
+            table_exists = cursor.fetchone()
+            self.logger.info(f"Session tasks table exists: {table_exists is not None}")
         except Exception as e:
             self.logger.critical(f"Failed to initialize database: {e}")
+            # Print full traceback to log
+            import traceback
+            self.logger.critical(traceback.format_exc())
             raise
         finally:
             if conn:
-                conn.close()   # Close the connection
+                conn.close()
 
-    def add_session_task(self, date, time_elapsed, task_name):
+    def add_session_task(self, date, hours, task, description="", tags=""):
         """
         Add a new task session to the database.
 
         Args:
             date (str): The date of the task (YYYY-MM-DD format)
-            time_elapsed (float): Duration of the task in hours
-            task_name (str): Name or description of the task
+            hours (float): Duration of the task in hours
+            task (str): Name or description of the task
+            description (str, optional): Additional details about the task
+            tags (str, optional): Categories or tags for the task
 
         Returns:
             int: The ID of the newly inserted record
         """
-        self.logger.info(f"Adding new session task: {task_name} on {date} ({time_elapsed} hours)")
+        self.logger.info(f"Adding new session task: {task} on {date} ({hours} hours)")
         conn = None
         try:
             # Connect to the database
@@ -74,9 +97,9 @@ class DatabaseService:
             # Insert the new session task
             # Note: We don't need to specify synced_to_sheets as it defaults to 0
             cursor.execute('''
-            INSERT INTO session_tasks (date, time_elapsed, task_name, description, category)
-            VALUES (?, ?, ?)
-            ''', (date, time_elapsed, task_name, description, category))
+            INSERT INTO session_tasks (date, hours, task, description, tags)
+            VALUES (?, ?, ?, ?, ?)
+            ''', (date, hours, task, description, tags))
 
             # Get the ID of the inserted row
             last_row_id = cursor.lastrowid
@@ -113,7 +136,7 @@ class DatabaseService:
 
             # Select all unsynced records
             cursor.execute('''
-            SELECT id, date, time_elapsed, task_name
+            SELECT id, date, hours, task, description, tags
             FROM session_tasks
             WHERE synced_to_sheets = 0
             ''')
@@ -195,7 +218,7 @@ class DatabaseService:
 
             # Select all records
             cursor.execute('''
-            SELECT id, date, time_elapsed, task_name, synced_to_sheets
+            SELECT id, date, hours, task, description, tags, synced_to_sheets
             FROM session_tasks
             ORDER BY date DESC
             ''')

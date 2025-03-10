@@ -173,3 +173,774 @@
 2025-03-09 21:00:43 - INFO - Task '' stopped. Elapsed time: 0.00 hours
 2025-03-09 21:00:43 - ERROR - Error saving task to database: DatabaseService.add_session_task() got an unexpected keyword argument 'description'
 2025-03-09 21:00:43 - WARNING - Failed to stop task or no task was running
+2025-03-09 21:06:58 - INFO - Initializing main window
+2025-03-09 21:06:58 - INFO - Initializing UI Service
+2025-03-09 21:06:58 - INFO - DatabaseService initialized
+2025-03-09 21:06:58 - INFO - Initializing database
+2025-03-09 21:06:58 - INFO - Database initialized successfully
+2025-03-09 21:06:58 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 21:06:58 - INFO - UI Service initialization complete
+2025-03-09 21:06:58 - INFO - Initializing system tray icon
+2025-03-09 21:06:58 - INFO - System tray icon initialized
+2025-03-09 21:06:58 - INFO - Setting up system tray menu and actions
+2025-03-09 21:06:58 - INFO - System tray icon is now visible
+2025-03-09 21:06:58 - INFO - Retrieving unsynced tasks
+2025-03-09 21:06:58 - INFO - Retrieving unsynced tasks
+2025-03-09 21:06:58 - INFO - Main window initialization complete
+2025-03-09 21:06:58 - INFO - Initializing floating pill widget
+2025-03-09 21:07:12 - INFO - New task created: 'testing test' with tags: ['Leetcode', 'Personal Project']
+2025-03-09 21:07:12 - INFO - Starting new task: 'testing test'
+2025-03-09 21:07:12 - INFO - Timer started for task: ''
+2025-03-09 21:07:12 - INFO - Timer started for task: ''
+2025-03-09 21:07:12 - INFO - Retrieving unsynced tasks
+2025-03-09 21:07:12 - INFO - Task 'testing test' started successfully
+2025-03-09 21:07:40 - INFO - Initializing main window
+2025-03-09 21:07:40 - INFO - Initializing UI Service
+2025-03-09 21:07:40 - INFO - DatabaseService initialized
+2025-03-09 21:07:40 - INFO - Initializing database
+2025-03-09 21:07:40 - INFO - Database initialized successfully
+2025-03-09 21:07:40 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 21:07:40 - INFO - UI Service initialization complete
+2025-03-09 21:07:40 - INFO - Initializing system tray icon
+2025-03-09 21:07:40 - INFO - System tray icon initialized
+2025-03-09 21:07:40 - INFO - Setting up system tray menu and actions
+2025-03-09 21:07:40 - INFO - System tray icon is now visible
+2025-03-09 21:07:40 - INFO - Retrieving unsynced tasks
+2025-03-09 21:07:40 - INFO - Retrieving unsynced tasks
+2025-03-09 21:07:40 - INFO - Main window initialization complete
+2025-03-09 21:07:40 - INFO - Initializing floating pill widget
+2025-03-09 21:07:50 - INFO - New task created: 'dawdawdawd' with tags: ['Chill', 'Gaming']
+2025-03-09 21:07:50 - INFO - Starting new task: 'dawdawdawd'
+2025-03-09 21:07:50 - INFO - Timer started for task: ''
+2025-03-09 21:07:50 - INFO - Timer started for task: ''
+2025-03-09 21:07:50 - INFO - Retrieving unsynced tasks
+2025-03-09 21:07:50 - INFO - Task 'dawdawdawd' started successfully
+2025-03-09 21:08:01 - INFO - Stopping current task
+2025-03-09 21:08:01 - INFO - Stopping task: ''
+2025-03-09 21:08:01 - INFO - Timer stopped for task: ''. Total time: 0.00 hours
+2025-03-09 21:08:01 - INFO - Timer stopped
+2025-03-09 21:08:01 - INFO - Retrieving unsynced tasks
+2025-03-09 21:08:01 - INFO - Retrieving unsynced tasks
+2025-03-09 21:08:01 - INFO - Task '' stopped. Elapsed time: 0.00 hours
+2025-03-09 21:08:01 - INFO - Adding new session task:  on 2025-03-09 (0.0030617127153608533 hours)
+2025-03-09 21:08:01 - ERROR - Failed to add session task: table session_tasks has no column named description
+2025-03-09 21:08:01 - ERROR - Error saving task to database: table session_tasks has no column named description
+2025-03-09 21:08:01 - WARNING - Failed to stop task or no task was running
+2025-03-09 21:09:35 - INFO - New task created: 'dawdawdawd' with tags: ['Gaming', 'Leetcode', 'Personal Project']
+2025-03-09 21:09:35 - INFO - Starting new task: 'dawdawdawd'
+2025-03-09 21:09:35 - INFO - Timer started for task: ''
+2025-03-09 21:09:35 - INFO - Timer started for task: ''
+2025-03-09 21:09:35 - INFO - Retrieving unsynced tasks
+2025-03-09 21:09:35 - ERROR - Error retrieving unsynced tasks: no such table: session_tasks
+2025-03-09 21:09:35 - ERROR - Error getting unsynced tasks count: no such table: session_tasks
+2025-03-09 21:09:35 - INFO - Task 'dawdawdawd' started successfully
+2025-03-09 21:09:49 - INFO - Stopping current task
+2025-03-09 21:09:49 - INFO - Stopping task: ''
+2025-03-09 21:09:49 - INFO - Timer stopped for task: ''. Total time: 0.00 hours
+2025-03-09 21:09:49 - INFO - Timer stopped
+2025-03-09 21:09:49 - INFO - Retrieving unsynced tasks
+2025-03-09 21:09:49 - ERROR - Error retrieving unsynced tasks: no such table: session_tasks
+2025-03-09 21:09:49 - ERROR - Error getting unsynced tasks count: no such table: session_tasks
+2025-03-09 21:09:49 - INFO - Retrieving unsynced tasks
+2025-03-09 21:09:49 - ERROR - Error retrieving unsynced tasks: no such table: session_tasks
+2025-03-09 21:09:49 - ERROR - Error getting unsynced tasks count: no such table: session_tasks
+2025-03-09 21:09:49 - INFO - Task '' stopped. Elapsed time: 0.00 hours
+2025-03-09 21:09:49 - INFO - Adding new session task:  on 2025-03-09 (0.004036428398556179 hours)
+2025-03-09 21:09:49 - ERROR - Failed to add session task: no such table: session_tasks
+2025-03-09 21:09:49 - ERROR - Error saving task to database: no such table: session_tasks
+2025-03-09 21:09:49 - WARNING - Failed to stop task or no task was running
+2025-03-09 21:10:15 - INFO - Retrieving unsynced tasks
+2025-03-09 21:10:15 - ERROR - Error retrieving unsynced tasks: no such table: session_tasks
+2025-03-09 21:10:15 - ERROR - Error getting unsynced tasks count: no such table: session_tasks
+2025-03-09 21:10:15 - INFO - Application closing - no issues
+2025-03-09 21:10:15 - INFO - Application shut down
+2025-03-09 21:14:23 - INFO - Initializing main window
+2025-03-09 21:14:23 - INFO - Initializing UI Service
+2025-03-09 21:14:23 - INFO - DatabaseService initialized
+2025-03-09 21:14:23 - INFO - Initializing database
+2025-03-09 21:14:23 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 21:14:23 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 21:14:23 - INFO - Database initialized successfully
+2025-03-09 21:14:23 - INFO - Session tasks table exists: True
+2025-03-09 21:14:23 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 21:14:23 - INFO - UI Service initialization complete
+2025-03-09 21:14:23 - INFO - Initializing system tray icon
+2025-03-09 21:14:23 - INFO - System tray icon initialized
+2025-03-09 21:14:23 - INFO - Setting up system tray menu and actions
+2025-03-09 21:14:23 - INFO - System tray icon is now visible
+2025-03-09 21:14:23 - INFO - Retrieving unsynced tasks
+2025-03-09 21:14:23 - INFO - Retrieving unsynced tasks
+2025-03-09 21:14:23 - INFO - Main window initialization complete
+2025-03-09 21:14:23 - INFO - Initializing floating pill widget
+2025-03-09 21:14:31 - INFO - New task created: 'dawdawd' with tags: ['Gaming', 'Leetcode']
+2025-03-09 21:14:31 - INFO - Starting new task: 'dawdawd'
+2025-03-09 21:14:31 - INFO - Timer started for task: ''
+2025-03-09 21:14:31 - INFO - Timer started for task: ''
+2025-03-09 21:14:31 - INFO - Retrieving unsynced tasks
+2025-03-09 21:14:31 - INFO - Task 'dawdawd' started successfully
+2025-03-09 21:14:38 - INFO - Stopping current task
+2025-03-09 21:14:38 - INFO - Stopping task: ''
+2025-03-09 21:14:38 - INFO - Timer stopped for task: ''. Total time: 0.00 hours
+2025-03-09 21:14:38 - INFO - Timer stopped
+2025-03-09 21:14:38 - INFO - Retrieving unsynced tasks
+2025-03-09 21:14:38 - INFO - Retrieving unsynced tasks
+2025-03-09 21:14:38 - INFO - Task '' stopped. Elapsed time: 0.00 hours
+2025-03-09 21:14:38 - INFO - Adding new session task:  on 2025-03-09 (0.002025097608566284 hours)
+2025-03-09 21:14:38 - INFO - Task saved to database with ID: 1
+2025-03-09 21:14:38 - INFO - Task stopped and saved to database
+2025-03-09 21:14:38 - INFO - Retrieving unsynced tasks
+2025-03-09 21:14:38 - INFO - Retrieving unsynced tasks
+2025-03-09 21:14:40 - INFO - Starting sync to Google Sheets
+2025-03-09 21:14:40 - INFO - Starting sync to Google Sheets
+2025-03-09 21:14:40 - INFO - Retrieving unsynced tasks
+2025-03-09 21:14:40 - INFO - Found 1 tasks to sync
+2025-03-09 21:14:40 - INFO - Authenticating with Google Sheets API
+2025-03-09 21:14:41 - INFO - Authentication successful
+2025-03-09 21:14:41 - ERROR - Error syncing tasks to Google Sheets: 'Time(hrs)'
+2025-03-09 21:14:41 - ERROR - Could not show notification: QStyle.standardIcon() is abstract and cannot be called as an unbound method
+2025-03-09 21:14:41 - WARNING - Failed to sync tasks to Google Sheets
+2025-03-09 21:14:44 - INFO - Retrieving unsynced tasks
+2025-03-09 21:17:18 - INFO - Retrieving unsynced tasks
+2025-03-09 21:17:18 - INFO - Unsynced tasks on exit: 1 - prompting user
+2025-03-09 21:17:21 - INFO - User chose to exit without syncing
+2025-03-09 21:17:21 - INFO - Application shut down
+2025-03-09 21:21:13 - INFO - Initializing main window
+2025-03-09 21:21:13 - INFO - Initializing UI Service
+2025-03-09 21:21:13 - INFO - DatabaseService initialized
+2025-03-09 21:21:13 - INFO - Initializing database
+2025-03-09 21:21:13 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 21:21:13 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 21:21:13 - INFO - Database initialized successfully
+2025-03-09 21:21:13 - INFO - Session tasks table exists: True
+2025-03-09 21:21:13 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 21:21:13 - INFO - UI Service initialization complete
+2025-03-09 21:21:13 - INFO - Initializing system tray icon
+2025-03-09 21:21:13 - INFO - System tray icon initialized
+2025-03-09 21:21:13 - INFO - Setting up system tray menu and actions
+2025-03-09 21:21:13 - INFO - System tray icon is now visible
+2025-03-09 21:21:13 - INFO - Retrieving unsynced tasks
+2025-03-09 21:21:13 - INFO - Retrieving unsynced tasks
+2025-03-09 21:21:13 - INFO - Main window initialization complete
+2025-03-09 21:21:13 - INFO - Initializing floating pill widget
+2025-03-09 21:21:24 - INFO - New task created: 'dawdawdawffff' with tags: ['Chill', 'Gaming', 'Leetcode', 'Personal Project', 'School']
+2025-03-09 21:21:24 - INFO - Starting new task: 'dawdawdawffff'
+2025-03-09 21:21:24 - INFO - Timer started for task: ''
+2025-03-09 21:21:24 - INFO - Timer started for task: ''
+2025-03-09 21:21:24 - INFO - Retrieving unsynced tasks
+2025-03-09 21:21:24 - INFO - Task 'dawdawdawffff' started successfully
+2025-03-09 21:21:32 - INFO - Stopping current task
+2025-03-09 21:21:32 - INFO - Stopping task: ''
+2025-03-09 21:21:32 - INFO - Timer stopped for task: ''. Total time: 0.00 hours
+2025-03-09 21:21:32 - INFO - Timer stopped
+2025-03-09 21:21:32 - INFO - Retrieving unsynced tasks
+2025-03-09 21:21:32 - INFO - Retrieving unsynced tasks
+2025-03-09 21:21:32 - INFO - Task '' stopped. Elapsed time: 0.00 hours
+2025-03-09 21:21:32 - INFO - Adding new session task:  on 2025-03-09 (0.0021290587054358587 hours)
+2025-03-09 21:21:32 - INFO - Task saved to database with ID: 2
+2025-03-09 21:21:32 - INFO - Task stopped and saved to database
+2025-03-09 21:21:32 - INFO - Retrieving unsynced tasks
+2025-03-09 21:21:32 - INFO - Retrieving unsynced tasks
+2025-03-09 21:21:34 - INFO - Starting sync to Google Sheets
+2025-03-09 21:21:34 - INFO - Starting sync to Google Sheets
+2025-03-09 21:21:34 - INFO - Retrieving unsynced tasks
+2025-03-09 21:21:34 - INFO - Found 2 tasks to sync
+2025-03-09 21:21:34 - INFO - Authenticating with Google Sheets API
+2025-03-09 21:21:35 - INFO - Authentication successful
+2025-03-09 21:21:35 - ERROR - Error syncing tasks to Google Sheets: 'Task'
+2025-03-09 21:21:35 - ERROR - Could not show notification: QStyle.standardIcon() is abstract and cannot be called as an unbound method
+2025-03-09 21:21:35 - WARNING - Failed to sync tasks to Google Sheets
+2025-03-09 21:21:37 - INFO - Retrieving unsynced tasks
+2025-03-09 21:22:20 - INFO - Retrieving unsynced tasks
+2025-03-09 21:22:20 - INFO - Unsynced tasks on exit: 2 - prompting user
+2025-03-09 21:22:22 - INFO - User chose to exit without syncing
+2025-03-09 21:22:22 - INFO - Application shut down
+2025-03-09 21:39:00 - INFO - Initializing main window
+2025-03-09 21:39:00 - INFO - Initializing UI Service
+2025-03-09 21:39:00 - INFO - DatabaseService initialized
+2025-03-09 21:39:00 - INFO - Initializing database
+2025-03-09 21:39:00 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 21:39:00 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 21:39:00 - INFO - Database initialized successfully
+2025-03-09 21:39:00 - INFO - Session tasks table exists: True
+2025-03-09 21:39:00 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 21:39:00 - INFO - UI Service initialization complete
+2025-03-09 21:39:00 - INFO - Initializing system tray icon
+2025-03-09 21:39:00 - INFO - System tray icon initialized
+2025-03-09 21:39:00 - INFO - Setting up system tray menu and actions
+2025-03-09 21:39:00 - INFO - System tray icon is now visible
+2025-03-09 21:39:00 - INFO - Retrieving unsynced tasks
+2025-03-09 21:39:00 - INFO - Retrieving unsynced tasks
+2025-03-09 21:39:00 - INFO - Main window initialization complete
+2025-03-09 21:39:00 - INFO - Initializing floating pill widget
+2025-03-09 21:39:08 - INFO - New task created: 'awdwadawd' with tags: ['Chill', 'Gaming', 'Leetcode', 'Personal Project', 'School']
+2025-03-09 21:39:08 - INFO - Starting new task: 'awdwadawd'
+2025-03-09 21:39:08 - INFO - Timer started for task: ''
+2025-03-09 21:39:08 - INFO - Timer started for task: ''
+2025-03-09 21:39:08 - INFO - Retrieving unsynced tasks
+2025-03-09 21:39:08 - INFO - Task 'awdwadawd' started successfully
+2025-03-09 21:39:32 - INFO - Initializing main window
+2025-03-09 21:39:32 - INFO - Initializing UI Service
+2025-03-09 21:39:32 - INFO - DatabaseService initialized
+2025-03-09 21:39:32 - INFO - Initializing database
+2025-03-09 21:39:32 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 21:39:32 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 21:39:32 - INFO - Database initialized successfully
+2025-03-09 21:39:32 - INFO - Session tasks table exists: True
+2025-03-09 21:39:32 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 21:39:32 - INFO - UI Service initialization complete
+2025-03-09 21:39:32 - INFO - Initializing system tray icon
+2025-03-09 21:39:32 - INFO - System tray icon initialized
+2025-03-09 21:39:32 - INFO - Setting up system tray menu and actions
+2025-03-09 21:39:32 - INFO - System tray icon is now visible
+2025-03-09 21:39:32 - INFO - Retrieving unsynced tasks
+2025-03-09 21:39:32 - INFO - Retrieving unsynced tasks
+2025-03-09 21:39:32 - INFO - Main window initialization complete
+2025-03-09 21:39:32 - INFO - Initializing floating pill widget
+2025-03-09 21:39:36 - INFO - Starting sync to Google Sheets
+2025-03-09 21:39:36 - INFO - Starting sync to Google Sheets
+2025-03-09 21:39:36 - INFO - Retrieving unsynced tasks
+2025-03-09 21:39:36 - INFO - Found 2 tasks to sync
+2025-03-09 21:39:36 - INFO - Authenticating with Google Sheets API
+2025-03-09 21:39:37 - INFO - Authentication successful
+2025-03-09 21:39:37 - ERROR - Error syncing tasks to Google Sheets: 'Time(hrs)'
+2025-03-09 21:39:37 - ERROR - Could not show notification: QStyle.standardIcon() is abstract and cannot be called as an unbound method
+2025-03-09 21:39:37 - WARNING - Failed to sync tasks to Google Sheets
+2025-03-09 21:39:39 - INFO - Retrieving unsynced tasks
+2025-03-09 21:40:06 - INFO - Retrieving unsynced tasks
+2025-03-09 21:40:06 - INFO - Unsynced tasks on exit: 2 - prompting user
+2025-03-09 21:40:07 - INFO - User chose to exit without syncing
+2025-03-09 21:40:07 - INFO - Application shut down
+2025-03-09 21:40:31 - INFO - Initializing main window
+2025-03-09 21:40:31 - INFO - Initializing UI Service
+2025-03-09 21:40:31 - INFO - DatabaseService initialized
+2025-03-09 21:40:31 - INFO - Initializing database
+2025-03-09 21:40:31 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 21:40:31 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 21:40:31 - INFO - Database initialized successfully
+2025-03-09 21:40:31 - INFO - Session tasks table exists: True
+2025-03-09 21:40:31 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 21:40:31 - INFO - UI Service initialization complete
+2025-03-09 21:40:31 - INFO - Initializing system tray icon
+2025-03-09 21:40:31 - INFO - System tray icon initialized
+2025-03-09 21:40:31 - INFO - Setting up system tray menu and actions
+2025-03-09 21:40:31 - INFO - System tray icon is now visible
+2025-03-09 21:40:31 - INFO - Retrieving unsynced tasks
+2025-03-09 21:40:31 - INFO - Retrieving unsynced tasks
+2025-03-09 21:40:31 - INFO - Main window initialization complete
+2025-03-09 21:40:31 - INFO - Initializing floating pill widget
+2025-03-09 21:40:52 - INFO - New task created: 'Test Entry' with tags: ['Chill', 'Gaming', 'Leetcode', 'Personal Project', 'School']
+2025-03-09 21:40:52 - INFO - Starting new task: 'Test Entry'
+2025-03-09 21:40:52 - INFO - Timer started for task: ''
+2025-03-09 21:40:52 - INFO - Timer started for task: ''
+2025-03-09 21:40:52 - INFO - Retrieving unsynced tasks
+2025-03-09 21:40:52 - INFO - Task 'Test Entry' started successfully
+2025-03-09 21:41:02 - INFO - Stopping current task
+2025-03-09 21:41:02 - INFO - Stopping task: ''
+2025-03-09 21:41:02 - INFO - Timer stopped for task: ''. Total time: 0.00 hours
+2025-03-09 21:41:02 - INFO - Timer stopped
+2025-03-09 21:41:02 - INFO - Retrieving unsynced tasks
+2025-03-09 21:41:02 - INFO - Retrieving unsynced tasks
+2025-03-09 21:41:02 - INFO - Task '' stopped. Elapsed time: 0.00 hours
+2025-03-09 21:41:02 - INFO - Adding new session task:  on 2025-03-09 (0.0028435900476243762 hours)
+2025-03-09 21:41:02 - INFO - Task saved to database with ID: 3
+2025-03-09 21:41:02 - INFO - Task stopped and saved to database
+2025-03-09 21:41:02 - INFO - Retrieving unsynced tasks
+2025-03-09 21:41:02 - INFO - Retrieving unsynced tasks
+2025-03-09 21:41:03 - INFO - Starting sync to Google Sheets
+2025-03-09 21:41:04 - INFO - Starting sync to Google Sheets
+2025-03-09 21:41:04 - INFO - Retrieving unsynced tasks
+2025-03-09 21:41:04 - INFO - Found 3 tasks to sync
+2025-03-09 21:41:04 - INFO - Authenticating with Google Sheets API
+2025-03-09 21:41:05 - INFO - Authentication successful
+2025-03-09 21:41:05 - ERROR - Error syncing tasks to Google Sheets: 'Time'
+2025-03-09 21:41:05 - ERROR - Could not show notification: QStyle.standardIcon() is abstract and cannot be called as an unbound method
+2025-03-09 21:41:05 - WARNING - Failed to sync tasks to Google Sheets
+2025-03-09 21:41:06 - INFO - Retrieving unsynced tasks
+2025-03-09 21:41:52 - INFO - Retrieving unsynced tasks
+2025-03-09 21:41:52 - INFO - Unsynced tasks on exit: 3 - prompting user
+2025-03-09 21:41:54 - INFO - User chose to exit without syncing
+2025-03-09 21:41:54 - INFO - Application shut down
+2025-03-09 21:48:00 - INFO - Initializing main window
+2025-03-09 21:48:00 - INFO - Initializing UI Service
+2025-03-09 21:48:00 - INFO - DatabaseService initialized
+2025-03-09 21:48:00 - INFO - Initializing database
+2025-03-09 21:48:00 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 21:48:00 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 21:48:00 - INFO - Database initialized successfully
+2025-03-09 21:48:00 - INFO - Session tasks table exists: True
+2025-03-09 21:48:00 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 21:48:00 - INFO - UI Service initialization complete
+2025-03-09 21:48:00 - INFO - Initializing system tray icon
+2025-03-09 21:48:00 - INFO - System tray icon initialized
+2025-03-09 21:48:00 - INFO - Setting up system tray menu and actions
+2025-03-09 21:48:00 - INFO - System tray icon is now visible
+2025-03-09 21:48:00 - INFO - Retrieving unsynced tasks
+2025-03-09 21:48:00 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 21:48:00 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 21:48:00 - INFO - Retrieving unsynced tasks
+2025-03-09 21:48:00 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 21:48:00 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 21:48:00 - INFO - Main window initialization complete
+2025-03-09 21:48:00 - INFO - Initializing floating pill widget
+2025-03-09 21:48:07 - INFO - New task created: 'awd' with tags: ['Chill', 'Gaming']
+2025-03-09 21:48:07 - INFO - Starting new task: 'awd'
+2025-03-09 21:48:07 - INFO - Timer started for task: ''
+2025-03-09 21:48:07 - INFO - Timer started for task: ''
+2025-03-09 21:48:07 - INFO - Retrieving unsynced tasks
+2025-03-09 21:48:07 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 21:48:07 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 21:48:07 - INFO - Task 'awd' started successfully
+2025-03-09 21:48:10 - INFO - Stopping current task
+2025-03-09 21:48:10 - INFO - Stopping task: ''
+2025-03-09 21:48:10 - INFO - Timer stopped for task: ''. Total time: 0.00 hours
+2025-03-09 21:48:10 - INFO - Timer stopped
+2025-03-09 21:48:10 - INFO - Retrieving unsynced tasks
+2025-03-09 21:48:10 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 21:48:10 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 21:48:10 - INFO - Retrieving unsynced tasks
+2025-03-09 21:48:10 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 21:48:10 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 21:48:10 - INFO - Task '' stopped. Elapsed time: 0.00 hours
+2025-03-09 21:48:10 - INFO - Adding new session task:  on 2025-03-09 (0.0007553937700059679 hours)
+2025-03-09 21:48:10 - INFO - Task saved to database with ID: 1
+2025-03-09 21:48:10 - INFO - Task stopped and saved to database
+2025-03-09 21:48:10 - INFO - Retrieving unsynced tasks
+2025-03-09 21:48:10 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 21:48:10 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 21:48:10 - INFO - Retrieving unsynced tasks
+2025-03-09 21:48:10 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 21:48:10 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 21:48:48 - INFO - Retrieving unsynced tasks
+2025-03-09 21:48:48 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 21:48:48 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 21:48:48 - INFO - Application closing - no issues
+2025-03-09 21:48:48 - INFO - Application shut down
+2025-03-09 21:53:17 - INFO - Initializing main window
+2025-03-09 21:53:17 - INFO - Initializing UI Service
+2025-03-09 21:53:17 - INFO - DatabaseService initialized
+2025-03-09 21:53:17 - INFO - Initializing database
+2025-03-09 21:53:17 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 21:53:17 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 21:53:17 - INFO - Database initialized successfully
+2025-03-09 21:53:17 - INFO - Session tasks table exists: True
+2025-03-09 21:53:17 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 21:53:17 - INFO - UI Service initialization complete
+2025-03-09 21:53:17 - INFO - Initializing system tray icon
+2025-03-09 21:53:17 - INFO - System tray icon initialized
+2025-03-09 21:53:17 - INFO - Setting up system tray menu and actions
+2025-03-09 21:53:17 - INFO - System tray icon is now visible
+2025-03-09 21:53:17 - INFO - Retrieving unsynced tasks
+2025-03-09 21:53:17 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 21:53:17 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 21:53:17 - INFO - Retrieving unsynced tasks
+2025-03-09 21:53:17 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 21:53:17 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 21:53:17 - INFO - Main window initialization complete
+2025-03-09 21:53:17 - INFO - Initializing floating pill widget
+2025-03-09 21:53:23 - INFO - New task created: 'awdafgadfwad' with tags: ['Gaming', 'Leetcode']
+2025-03-09 21:53:23 - INFO - Starting new task: 'awdafgadfwad'
+2025-03-09 21:53:23 - INFO - Timer started for task: ''
+2025-03-09 21:53:23 - INFO - Timer started for task: ''
+2025-03-09 21:53:23 - INFO - Retrieving unsynced tasks
+2025-03-09 21:53:23 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 21:53:23 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 21:53:23 - INFO - Task 'awdafgadfwad' started successfully
+2025-03-09 21:53:26 - INFO - Stopping current task
+2025-03-09 21:53:26 - INFO - Stopping task: ''
+2025-03-09 21:53:26 - INFO - Timer stopped for task: ''. Total time: 0.00 hours
+2025-03-09 21:53:26 - INFO - Timer stopped
+2025-03-09 21:53:26 - INFO - Retrieving unsynced tasks
+2025-03-09 21:53:26 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 21:53:26 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 21:53:26 - INFO - Retrieving unsynced tasks
+2025-03-09 21:53:26 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 21:53:26 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 21:53:26 - INFO - Task '' stopped. Elapsed time: 0.00 hours
+2025-03-09 21:53:26 - INFO - Adding new session task:  on 2025-03-09 (0.0010174967183007135 hours)
+2025-03-09 21:53:26 - INFO - Task saved to database with ID: 2
+2025-03-09 21:53:26 - INFO - Task stopped and saved to database
+2025-03-09 21:53:26 - INFO - Retrieving unsynced tasks
+2025-03-09 21:53:26 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 21:53:26 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 21:53:26 - INFO - Retrieving unsynced tasks
+2025-03-09 21:53:26 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 21:53:26 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 22:06:08 - INFO - Retrieving unsynced tasks
+2025-03-09 22:06:08 - ERROR - Error retrieving unsynced tasks: no such column: time_elapsed
+2025-03-09 22:06:08 - ERROR - Error getting unsynced tasks count: no such column: time_elapsed
+2025-03-09 22:06:08 - INFO - Application closing - no issues
+2025-03-09 22:06:08 - INFO - Application shut down
+2025-03-09 22:10:40 - INFO - Initializing main window
+2025-03-09 22:10:40 - INFO - Initializing UI Service
+2025-03-09 22:10:40 - INFO - DatabaseService initialized
+2025-03-09 22:10:40 - INFO - Initializing database
+2025-03-09 22:10:40 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 22:10:40 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 22:10:40 - INFO - Database initialized successfully
+2025-03-09 22:10:40 - INFO - Session tasks table exists: True
+2025-03-09 22:10:40 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 22:10:40 - INFO - UI Service initialization complete
+2025-03-09 22:10:40 - INFO - Initializing system tray icon
+2025-03-09 22:10:40 - INFO - System tray icon initialized
+2025-03-09 22:10:40 - INFO - Setting up system tray menu and actions
+2025-03-09 22:10:40 - INFO - System tray icon is now visible
+2025-03-09 22:10:40 - INFO - Retrieving unsynced tasks
+2025-03-09 22:10:40 - ERROR - Error retrieving unsynced tasks: no such column: hours
+2025-03-09 22:10:40 - ERROR - Error getting unsynced tasks count: no such column: hours
+2025-03-09 22:10:40 - INFO - Retrieving unsynced tasks
+2025-03-09 22:10:40 - ERROR - Error retrieving unsynced tasks: no such column: hours
+2025-03-09 22:10:40 - ERROR - Error getting unsynced tasks count: no such column: hours
+2025-03-09 22:10:40 - INFO - Main window initialization complete
+2025-03-09 22:10:40 - INFO - Initializing floating pill widget
+2025-03-09 22:10:53 - INFO - New task created: 'adwadfafgawfd#$' with tags: ['Chill', 'Gaming', 'Leetcode', 'Personal Project', 'School']
+2025-03-09 22:10:53 - INFO - Starting new task: 'adwadfafgawfd#$'
+2025-03-09 22:10:53 - INFO - Timer started for task: ''
+2025-03-09 22:10:53 - INFO - Timer started for task: ''
+2025-03-09 22:10:53 - INFO - Retrieving unsynced tasks
+2025-03-09 22:10:53 - ERROR - Error retrieving unsynced tasks: no such column: hours
+2025-03-09 22:10:53 - ERROR - Error getting unsynced tasks count: no such column: hours
+2025-03-09 22:10:53 - INFO - Task 'adwadfafgawfd#$' started successfully
+2025-03-09 22:11:00 - INFO - Stopping current task
+2025-03-09 22:11:00 - INFO - Stopping task: ''
+2025-03-09 22:11:00 - INFO - Timer stopped for task: ''. Total time: 0.00 hours
+2025-03-09 22:11:00 - INFO - Timer stopped
+2025-03-09 22:11:00 - INFO - Retrieving unsynced tasks
+2025-03-09 22:11:00 - ERROR - Error retrieving unsynced tasks: no such column: hours
+2025-03-09 22:11:00 - ERROR - Error getting unsynced tasks count: no such column: hours
+2025-03-09 22:11:00 - INFO - Retrieving unsynced tasks
+2025-03-09 22:11:00 - ERROR - Error retrieving unsynced tasks: no such column: hours
+2025-03-09 22:11:00 - ERROR - Error getting unsynced tasks count: no such column: hours
+2025-03-09 22:11:00 - INFO - Task '' stopped. Elapsed time: 0.00 hours
+2025-03-09 22:11:00 - INFO - Adding new session task:  on 2025-03-09 (0.001896715826458401 hours)
+2025-03-09 22:11:00 - ERROR - Failed to add session task: table session_tasks has no column named hours
+2025-03-09 22:11:00 - ERROR - Error saving task to database: table session_tasks has no column named hours
+2025-03-09 22:11:00 - WARNING - Failed to stop task or no task was running
+2025-03-09 22:11:17 - INFO - Retrieving unsynced tasks
+2025-03-09 22:11:17 - ERROR - Error retrieving unsynced tasks: no such column: hours
+2025-03-09 22:11:17 - ERROR - Error getting unsynced tasks count: no such column: hours
+2025-03-09 22:11:17 - INFO - Application closing - no issues
+2025-03-09 22:11:17 - INFO - Application shut down
+2025-03-09 22:11:24 - INFO - Initializing main window
+2025-03-09 22:11:24 - INFO - Initializing UI Service
+2025-03-09 22:11:24 - INFO - DatabaseService initialized
+2025-03-09 22:11:24 - INFO - Initializing database
+2025-03-09 22:11:24 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 22:11:24 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 22:11:24 - INFO - Database initialized successfully
+2025-03-09 22:11:24 - INFO - Session tasks table exists: True
+2025-03-09 22:11:24 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 22:11:24 - INFO - UI Service initialization complete
+2025-03-09 22:11:24 - INFO - Initializing system tray icon
+2025-03-09 22:11:24 - INFO - System tray icon initialized
+2025-03-09 22:11:24 - INFO - Setting up system tray menu and actions
+2025-03-09 22:11:24 - INFO - System tray icon is now visible
+2025-03-09 22:11:24 - INFO - Retrieving unsynced tasks
+2025-03-09 22:11:24 - INFO - Retrieving unsynced tasks
+2025-03-09 22:11:24 - INFO - Main window initialization complete
+2025-03-09 22:11:24 - INFO - Initializing floating pill widget
+2025-03-09 22:11:35 - INFO - Initializing main window
+2025-03-09 22:11:35 - INFO - Initializing UI Service
+2025-03-09 22:11:35 - INFO - DatabaseService initialized
+2025-03-09 22:11:35 - INFO - Initializing database
+2025-03-09 22:11:35 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 22:11:35 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 22:11:35 - INFO - Database initialized successfully
+2025-03-09 22:11:35 - INFO - Session tasks table exists: True
+2025-03-09 22:11:35 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 22:11:35 - INFO - UI Service initialization complete
+2025-03-09 22:11:35 - INFO - Initializing system tray icon
+2025-03-09 22:11:35 - INFO - System tray icon initialized
+2025-03-09 22:11:35 - INFO - Setting up system tray menu and actions
+2025-03-09 22:11:35 - INFO - System tray icon is now visible
+2025-03-09 22:11:35 - INFO - Retrieving unsynced tasks
+2025-03-09 22:11:35 - INFO - Retrieving unsynced tasks
+2025-03-09 22:11:35 - INFO - Main window initialization complete
+2025-03-09 22:11:35 - INFO - Initializing floating pill widget
+2025-03-09 22:11:47 - INFO - New task created: 'Test Task' with tags: ['Chill', 'Gaming', 'Leetcode', 'Personal Project', 'School']
+2025-03-09 22:11:47 - INFO - Starting new task: 'Test Task'
+2025-03-09 22:11:47 - INFO - Timer started for task: ''
+2025-03-09 22:11:47 - INFO - Timer started for task: ''
+2025-03-09 22:11:47 - INFO - Retrieving unsynced tasks
+2025-03-09 22:11:47 - INFO - Task 'Test Task' started successfully
+2025-03-09 22:11:58 - INFO - Stopping current task
+2025-03-09 22:11:58 - INFO - Stopping task: ''
+2025-03-09 22:11:58 - INFO - Timer stopped for task: ''. Total time: 0.00 hours
+2025-03-09 22:11:58 - INFO - Timer stopped
+2025-03-09 22:11:58 - INFO - Retrieving unsynced tasks
+2025-03-09 22:11:58 - INFO - Retrieving unsynced tasks
+2025-03-09 22:11:58 - INFO - Task '' stopped. Elapsed time: 0.00 hours
+2025-03-09 22:11:58 - INFO - Adding new session task:  on 2025-03-09 (0.00303212132718828 hours)
+2025-03-09 22:11:58 - INFO - Task saved to database with ID: 1
+2025-03-09 22:11:58 - INFO - Task stopped and saved to database
+2025-03-09 22:11:58 - INFO - Retrieving unsynced tasks
+2025-03-09 22:11:58 - INFO - Retrieving unsynced tasks
+2025-03-09 22:11:59 - INFO - Starting sync to Google Sheets
+2025-03-09 22:11:59 - INFO - Starting sync to Google Sheets
+2025-03-09 22:11:59 - INFO - Retrieving unsynced tasks
+2025-03-09 22:11:59 - INFO - Found 1 tasks to sync
+2025-03-09 22:11:59 - INFO - Authenticating with Google Sheets API
+2025-03-09 22:12:00 - INFO - Authentication successful
+2025-03-09 22:12:00 - ERROR - Error syncing tasks to Google Sheets: 'UIService' object has no attribute 'sheet'
+2025-03-09 22:12:00 - ERROR - Could not show notification: QStyle.standardIcon() is abstract and cannot be called as an unbound method
+2025-03-09 22:12:00 - WARNING - Failed to sync tasks to Google Sheets
+2025-03-09 22:12:30 - INFO - Retrieving unsynced tasks
+2025-03-09 22:12:31 - INFO - Retrieving unsynced tasks
+2025-03-09 22:12:31 - INFO - Unsynced tasks on exit: 1 - prompting user
+2025-03-09 22:12:33 - INFO - User chose to exit without syncing
+2025-03-09 22:12:33 - INFO - Application shut down
+2025-03-09 22:16:46 - INFO - Initializing main window
+2025-03-09 22:16:46 - INFO - Initializing UI Service
+2025-03-09 22:16:46 - INFO - DatabaseService initialized
+2025-03-09 22:16:46 - INFO - Initializing database
+2025-03-09 22:16:46 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 22:16:46 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 22:16:46 - INFO - Database initialized successfully
+2025-03-09 22:16:46 - INFO - Session tasks table exists: True
+2025-03-09 22:16:46 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 22:16:46 - INFO - UI Service initialization complete
+2025-03-09 22:16:46 - INFO - Initializing system tray icon
+2025-03-09 22:16:46 - INFO - System tray icon initialized
+2025-03-09 22:16:46 - INFO - Setting up system tray menu and actions
+2025-03-09 22:16:46 - INFO - System tray icon is now visible
+2025-03-09 22:16:46 - INFO - Retrieving unsynced tasks
+2025-03-09 22:16:46 - INFO - Retrieving unsynced tasks
+2025-03-09 22:16:46 - INFO - Main window initialization complete
+2025-03-09 22:16:46 - INFO - Initializing floating pill widget
+2025-03-09 22:16:52 - INFO - New task created: 'adwawdawdawd' with tags: ['Chill', 'Gaming']
+2025-03-09 22:16:52 - INFO - Starting new task: 'adwawdawdawd'
+2025-03-09 22:16:52 - INFO - Timer started for task: ''
+2025-03-09 22:16:52 - INFO - Timer started for task: ''
+2025-03-09 22:16:52 - INFO - Retrieving unsynced tasks
+2025-03-09 22:16:52 - INFO - Task 'adwawdawdawd' started successfully
+2025-03-09 22:16:58 - INFO - Stopping current task
+2025-03-09 22:16:58 - INFO - Stopping task: ''
+2025-03-09 22:16:58 - INFO - Timer stopped for task: ''. Total time: 0.00 hours
+2025-03-09 22:16:58 - INFO - Timer stopped
+2025-03-09 22:16:58 - INFO - Retrieving unsynced tasks
+2025-03-09 22:16:58 - INFO - Retrieving unsynced tasks
+2025-03-09 22:16:58 - INFO - Task '' stopped. Elapsed time: 0.00 hours
+2025-03-09 22:16:58 - INFO - Adding new session task:  on 2025-03-09 (0.0014595462216271293 hours)
+2025-03-09 22:16:58 - INFO - Task saved to database with ID: 2
+2025-03-09 22:16:58 - INFO - Task stopped and saved to database
+2025-03-09 22:16:58 - INFO - Retrieving unsynced tasks
+2025-03-09 22:16:58 - INFO - Retrieving unsynced tasks
+2025-03-09 22:16:59 - INFO - Starting sync to Google Sheets
+2025-03-09 22:16:59 - INFO - Starting sync to Google Sheets
+2025-03-09 22:16:59 - INFO - Retrieving unsynced tasks
+2025-03-09 22:16:59 - INFO - Found 2 tasks to sync
+2025-03-09 22:16:59 - INFO - Authenticating with Google Sheets API
+2025-03-09 22:17:00 - INFO - Authentication successful
+2025-03-09 22:17:00 - INFO - Appending row to spreadsheet: ['03/09/2025', 0.0, '', 'This is a test', 'Chill, Gaming, Leetcode, Personal Project, School']
+2025-03-09 22:17:01 - INFO - Marking task ID 1 as synced
+2025-03-09 22:17:01 - INFO - Appending row to spreadsheet: ['03/09/2025', 0.0, '', 'awdawd', 'Chill, Gaming']
+2025-03-09 22:17:02 - INFO - Marking task ID 2 as synced
+2025-03-09 22:17:02 - INFO - Successfully synced 2 tasks to Google Sheets
+2025-03-09 22:17:02 - ERROR - Could not show notification: QStyle.standardIcon() is abstract and cannot be called as an unbound method
+2025-03-09 22:17:02 - INFO - Tasks successfully synced to Google Sheets
+2025-03-09 22:17:06 - INFO - Retrieving unsynced tasks
+2025-03-09 22:17:39 - INFO - Retrieving unsynced tasks
+2025-03-09 22:17:39 - INFO - Application closing - no issues
+2025-03-09 22:17:39 - INFO - Application shut down
+2025-03-09 22:18:58 - INFO - Initializing main window
+2025-03-09 22:18:58 - INFO - Initializing UI Service
+2025-03-09 22:18:58 - INFO - DatabaseService initialized
+2025-03-09 22:18:58 - INFO - Initializing database
+2025-03-09 22:18:58 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 22:18:58 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 22:18:58 - INFO - Database initialized successfully
+2025-03-09 22:18:58 - INFO - Session tasks table exists: True
+2025-03-09 22:18:58 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 22:18:58 - INFO - UI Service initialization complete
+2025-03-09 22:18:58 - INFO - Initializing system tray icon
+2025-03-09 22:18:58 - INFO - System tray icon initialized
+2025-03-09 22:18:58 - INFO - Setting up system tray menu and actions
+2025-03-09 22:18:58 - INFO - System tray icon is now visible
+2025-03-09 22:18:58 - INFO - Retrieving unsynced tasks
+2025-03-09 22:18:58 - INFO - Retrieving unsynced tasks
+2025-03-09 22:18:58 - INFO - Main window initialization complete
+2025-03-09 22:18:58 - INFO - Initializing floating pill widget
+2025-03-09 22:19:03 - INFO - New task created: 'awdwadawd' with tags: ['Gaming', 'Leetcode']
+2025-03-09 22:19:03 - INFO - Starting new task: 'awdwadawd'
+2025-03-09 22:19:03 - INFO - Timer started for task: ''
+2025-03-09 22:19:03 - INFO - Timer started for task: ''
+2025-03-09 22:19:03 - INFO - Retrieving unsynced tasks
+2025-03-09 22:19:03 - INFO - Task 'awdwadawd' started successfully
+2025-03-09 22:19:06 - INFO - Stopping current task
+2025-03-09 22:19:06 - INFO - Stopping task: ''
+2025-03-09 22:19:06 - INFO - Current task categories: ['Gaming', 'Leetcode']
+2025-03-09 22:19:06 - INFO - Current task description: awdawd
+2025-03-09 22:19:06 - INFO - Stopping task: ''
+2025-03-09 22:19:06 - INFO - Timer stopped for task: ''. Total time: 0.00 hours
+2025-03-09 22:19:06 - INFO - Timer stopped
+2025-03-09 22:19:06 - INFO - Retrieving unsynced tasks
+2025-03-09 22:19:06 - INFO - Retrieving unsynced tasks
+2025-03-09 22:19:06 - INFO - Task '' stopped. Elapsed time: 0.00 hours
+2025-03-09 22:19:06 - INFO - Adding new session task:  on 2025-03-09 (0.0007900751299328274 hours)
+2025-03-09 22:19:06 - INFO - Task saved to database with ID: 3
+2025-03-09 22:19:06 - INFO - Task stopped and saved to database
+2025-03-09 22:19:06 - INFO - Retrieving unsynced tasks
+2025-03-09 22:19:06 - INFO - Retrieving unsynced tasks
+2025-03-09 22:19:07 - INFO - Starting sync to Google Sheets
+2025-03-09 22:19:08 - INFO - Starting sync to Google Sheets
+2025-03-09 22:19:08 - INFO - Retrieving unsynced tasks
+2025-03-09 22:19:08 - INFO - Found 1 tasks to sync
+2025-03-09 22:19:08 - INFO - Authenticating with Google Sheets API
+2025-03-09 22:19:09 - INFO - Authentication successful
+2025-03-09 22:19:09 - INFO - Appending row to spreadsheet: ['03/09/2025', 0.0, '', 'awdawd', 'Gaming, Leetcode']
+2025-03-09 22:19:09 - INFO - Marking task ID 3 as synced
+2025-03-09 22:19:09 - INFO - Successfully synced 1 tasks to Google Sheets
+2025-03-09 22:19:09 - ERROR - Could not show notification: QStyle.standardIcon() is abstract and cannot be called as an unbound method
+2025-03-09 22:19:09 - INFO - Tasks successfully synced to Google Sheets
+2025-03-09 22:19:10 - INFO - Retrieving unsynced tasks
+2025-03-09 22:20:59 - INFO - Retrieving unsynced tasks
+2025-03-09 22:20:59 - INFO - Application closing - no issues
+2025-03-09 22:20:59 - INFO - Application shut down
+2025-03-09 22:23:05 - INFO - Initializing main window
+2025-03-09 22:23:05 - INFO - Initializing UI Service
+2025-03-09 22:23:05 - INFO - DatabaseService initialized
+2025-03-09 22:23:05 - INFO - Initializing database
+2025-03-09 22:23:05 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 22:23:05 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 22:23:05 - INFO - Database initialized successfully
+2025-03-09 22:23:05 - INFO - Session tasks table exists: True
+2025-03-09 22:23:05 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 22:23:05 - INFO - UI Service initialization complete
+2025-03-09 22:23:05 - INFO - Initializing system tray icon
+2025-03-09 22:23:05 - INFO - System tray icon initialized
+2025-03-09 22:23:05 - INFO - Setting up system tray menu and actions
+2025-03-09 22:23:05 - INFO - System tray icon is now visible
+2025-03-09 22:23:05 - INFO - Retrieving unsynced tasks
+2025-03-09 22:23:05 - INFO - Retrieving unsynced tasks
+2025-03-09 22:23:05 - INFO - Main window initialization complete
+2025-03-09 22:23:05 - INFO - Initializing floating pill widget
+2025-03-09 22:23:19 - INFO - New task created: 'Test #3' with tags: ['Chill']
+2025-03-09 22:23:19 - INFO - Starting new task: 'Test #3'
+2025-03-09 22:23:19 - INFO - Timer started for task: ''
+2025-03-09 22:23:19 - INFO - Timer started for task: ''
+2025-03-09 22:23:19 - INFO - Retrieving unsynced tasks
+2025-03-09 22:23:19 - INFO - Task 'Test #3' started successfully
+2025-03-09 22:23:35 - INFO - Stopping current task
+2025-03-09 22:23:35 - INFO - Stopping task: ''
+2025-03-09 22:23:35 - INFO - Current task categories: ['Chill']
+2025-03-09 22:23:35 - INFO - Current task description: aawd
+2025-03-09 22:23:35 - INFO - Stopping task: ''
+2025-03-09 22:23:35 - INFO - Timer stopped for task: ''. Total time: 0.00 hours
+2025-03-09 22:23:35 - INFO - Timer stopped
+2025-03-09 22:23:35 - INFO - Retrieving unsynced tasks
+2025-03-09 22:23:35 - INFO - Retrieving unsynced tasks
+2025-03-09 22:23:35 - INFO - Task '' stopped. Elapsed time: 0.00 hours
+2025-03-09 22:23:35 - INFO - Adding new session task:  on 2025-03-09 (0.004314832157558865 hours)
+2025-03-09 22:23:35 - INFO - Task saved to database with ID: 4
+2025-03-09 22:23:35 - INFO - Task stopped and saved to database
+2025-03-09 22:23:35 - INFO - Retrieving unsynced tasks
+2025-03-09 22:23:35 - INFO - Retrieving unsynced tasks
+2025-03-09 22:23:42 - INFO - Retrieving unsynced tasks
+2025-03-09 22:23:42 - INFO - Unsynced tasks on exit: 1 - prompting user
+2025-03-09 22:23:42 - INFO - User chose to exit without syncing
+2025-03-09 22:23:42 - INFO - Application shut down
+2025-03-09 22:27:03 - INFO - Initializing main window
+2025-03-09 22:27:03 - INFO - Initializing UI Service
+2025-03-09 22:27:03 - INFO - DatabaseService initialized
+2025-03-09 22:27:03 - INFO - Initializing database
+2025-03-09 22:27:03 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 22:27:03 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 22:27:03 - INFO - Database initialized successfully
+2025-03-09 22:27:03 - INFO - Session tasks table exists: True
+2025-03-09 22:27:03 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 22:27:03 - INFO - UI Service initialization complete
+2025-03-09 22:27:03 - INFO - Initializing system tray icon
+2025-03-09 22:27:03 - INFO - System tray icon initialized
+2025-03-09 22:27:03 - INFO - Setting up system tray menu and actions
+2025-03-09 22:27:03 - INFO - System tray icon is now visible
+2025-03-09 22:27:03 - INFO - Retrieving unsynced tasks
+2025-03-09 22:27:03 - INFO - Retrieving unsynced tasks
+2025-03-09 22:27:03 - INFO - Main window initialization complete
+2025-03-09 22:27:03 - INFO - Initializing floating pill widget
+2025-03-09 22:27:17 - INFO - New task created: 'Test #4' with tags: ['Leetcode', 'School']
+2025-03-09 22:27:17 - INFO - Starting new task: 'Test #4'
+2025-03-09 22:27:17 - INFO - Timer started for task: ''
+2025-03-09 22:27:17 - INFO - Timer started for task: ''
+2025-03-09 22:27:17 - INFO - Retrieving unsynced tasks
+2025-03-09 22:27:17 - INFO - Task 'Test #4' started successfully
+2025-03-09 22:27:28 - INFO - Stopping current task
+2025-03-09 22:27:28 - INFO - Stopping task: ''
+2025-03-09 22:27:28 - INFO - Current task categories: ['Leetcode', 'School']
+2025-03-09 22:27:28 - INFO - Current task description: test 4
+2025-03-09 22:27:28 - INFO - Stopping task: ''
+2025-03-09 22:27:28 - INFO - Timer stopped for task: ''. Total time: 0.00 hours
+2025-03-09 22:27:28 - INFO - Timer stopped
+2025-03-09 22:27:28 - INFO - Retrieving unsynced tasks
+2025-03-09 22:27:28 - INFO - Retrieving unsynced tasks
+2025-03-09 22:27:28 - INFO - Task '' stopped. Elapsed time: 0.00 hours
+2025-03-09 22:27:28 - INFO - Adding new session task:  on 2025-03-09 (0.0030766588449478148 hours)
+2025-03-09 22:27:28 - INFO - Task saved to database with ID: 5
+2025-03-09 22:27:28 - INFO - Task stopped and saved to database
+2025-03-09 22:27:28 - INFO - Retrieving unsynced tasks
+2025-03-09 22:27:28 - INFO - Retrieving unsynced tasks
+2025-03-09 22:27:31 - INFO - Retrieving unsynced tasks
+2025-03-09 22:27:31 - INFO - Unsynced tasks on exit: 2 - prompting user
+2025-03-09 22:27:33 - INFO - Exit cancelled due to pending syncs
+2025-03-09 22:28:18 - INFO - Retrieving unsynced tasks
+2025-03-09 22:28:18 - INFO - Unsynced tasks on exit: 2 - prompting user
+2025-03-09 22:28:19 - INFO - User chose to exit without syncing
+2025-03-09 22:28:19 - INFO - Application shut down
+2025-03-09 22:28:21 - INFO - Initializing main window
+2025-03-09 22:28:21 - INFO - Initializing UI Service
+2025-03-09 22:30:40 - INFO - Initializing main window
+2025-03-09 22:30:40 - INFO - Initializing UI Service
+2025-03-09 22:30:40 - INFO - DatabaseService initialized
+2025-03-09 22:30:40 - INFO - Initializing database
+2025-03-09 22:30:40 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 22:30:40 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 22:30:40 - INFO - Database initialized successfully
+2025-03-09 22:30:40 - INFO - Session tasks table exists: True
+2025-03-09 22:30:40 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 22:30:40 - INFO - UI Service initialization complete
+2025-03-09 22:30:40 - INFO - Initializing system tray icon
+2025-03-09 22:30:40 - INFO - System tray icon initialized
+2025-03-09 22:30:40 - INFO - Setting up system tray menu and actions
+2025-03-09 22:30:40 - INFO - System tray icon is now visible
+2025-03-09 22:30:40 - INFO - Retrieving unsynced tasks
+2025-03-09 22:30:40 - INFO - Retrieving unsynced tasks
+2025-03-09 22:30:40 - INFO - Main window initialization complete
+2025-03-09 22:30:40 - INFO - Initializing floating pill widget
+2025-03-09 22:30:53 - INFO - New task created: 'Test #5' with tags: ['School']
+2025-03-09 22:30:53 - INFO - Starting new task: 'Test #5'
+2025-03-09 22:30:53 - INFO - Timer started for task: 'Test #5'
+2025-03-09 22:30:53 - INFO - Timer started for task: 'Test #5'
+2025-03-09 22:30:53 - INFO - Retrieving unsynced tasks
+2025-03-09 22:30:53 - INFO - Task 'Test #5' started successfully
+2025-03-09 22:31:02 - INFO - Stopping current task
+2025-03-09 22:31:02 - INFO - Stopping task: 'Test #5'
+2025-03-09 22:31:02 - INFO - Current task categories: ['School']
+2025-03-09 22:31:02 - INFO - Current task description: This is the one!
+2025-03-09 22:31:02 - INFO - Stopping task: 'Test #5'
+2025-03-09 22:31:02 - INFO - Timer stopped for task: 'Test #5'. Total time: 0.00 hours
+2025-03-09 22:31:02 - INFO - Timer stopped
+2025-03-09 22:31:02 - INFO - Retrieving unsynced tasks
+2025-03-09 22:31:02 - INFO - Retrieving unsynced tasks
+2025-03-09 22:31:02 - INFO - Task 'Test #5' stopped. Elapsed time: 0.00 hours
+2025-03-09 22:31:02 - INFO - Adding new session task: Test #5 on 2025-03-09 (0.002514883279800415 hours)
+2025-03-09 22:31:02 - INFO - Task saved to database with ID: 6
+2025-03-09 22:31:02 - INFO - Task stopped and saved to database
+2025-03-09 22:31:02 - INFO - Retrieving unsynced tasks
+2025-03-09 22:31:02 - INFO - Retrieving unsynced tasks
+2025-03-09 22:31:03 - INFO - Starting sync to Google Sheets
+2025-03-09 22:31:03 - INFO - Starting sync to Google Sheets
+2025-03-09 22:31:03 - INFO - Retrieving unsynced tasks
+2025-03-09 22:31:03 - INFO - Found 3 tasks to sync
+2025-03-09 22:31:03 - INFO - Authenticating with Google Sheets API
+2025-03-09 22:31:04 - INFO - Authentication successful
+2025-03-09 22:31:04 - INFO - Appending row to spreadsheet: ['03/09/2025', 0.0, '', 'aawd', 'Chill']
+2025-03-09 22:31:05 - INFO - Marking task ID 4 as synced
+2025-03-09 22:31:05 - INFO - Appending row to spreadsheet: ['03/09/2025', 0.0, '', 'test 4', 'Leetcode, School']
+2025-03-09 22:31:06 - INFO - Marking task ID 5 as synced
+2025-03-09 22:31:06 - INFO - Appending row to spreadsheet: ['03/09/2025', 0.0, 'Test #5', 'This is the one!', 'School']
+2025-03-09 22:31:06 - INFO - Marking task ID 6 as synced
+2025-03-09 22:31:06 - INFO - Successfully synced 3 tasks to Google Sheets
+2025-03-09 22:31:06 - ERROR - Could not show notification: QStyle.standardIcon() is abstract and cannot be called as an unbound method
+2025-03-09 22:31:06 - INFO - Tasks successfully synced to Google Sheets
+2025-03-09 22:31:07 - INFO - Retrieving unsynced tasks
+2025-03-09 22:35:12 - INFO - Retrieving unsynced tasks
+2025-03-09 22:35:12 - INFO - Application closing - no issues
+2025-03-09 22:35:12 - INFO - Application shut down

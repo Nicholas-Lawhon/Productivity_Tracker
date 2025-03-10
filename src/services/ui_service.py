@@ -182,6 +182,9 @@ class UIService:
         """
         task_name = self.get_current_task_name()
         self.logger.info(f"Stopping task: '{task_name}'")
+        self.logger.info(f"Current task categories: {getattr(self, 'current_task_categories', 'None')}")
+        self.logger.info(f"Current task description: {getattr(self, 'current_task_description', 'None')}")
+        self.logger.info(f"Stopping task: '{task_name}'")
 
         # Stop the timer and get elapsed time
         hours_elapsed = self.time_tracker.stop()
@@ -200,10 +203,10 @@ class UIService:
             try:
                 task_id = self.db_service.add_session_task(
                     date=today,
-                    time_elapsed=hours_elapsed,
-                    task_name=task_name,
+                    hours=hours_elapsed,
+                    task=task_name,
                     description=getattr(self, 'current_task_description', ""),
-                    category=categories_str
+                    tags=categories_str
                 )
 
                 if task_id:
@@ -249,27 +252,38 @@ class UIService:
             # Sync each task
             success_count = 0
             for task in unsynced_tasks:
+                # Debug logging for task details
+                self.logger.debug(f"Task details: {task}")
+
                 # Format date as desired (MM/DD/YYYY format)
                 date_obj = datetime.datetime.strptime(task['date'], "%Y-%m-%d")
                 formatted_date = date_obj.strftime("%m/%d/%Y")
-                self.logger.debug(f"Syncing task ID {task['id']}: {task['task_name']}")
 
-                # Format row for Google Sheets
+                # Detailed logging of row data
                 row_data = [
                     formatted_date,
-                    task['Time(hrs)'],
-                    task['Task'],
-                    task.get('Description', ""),
-                    ", ".join(task.get('category', [])) if isinstance(task.get('category'), list) else task.get('category', "")  # Tags
+                    round(task['hours'], 2),  # Format to 2 decimals
+                    task['task'],
+                    task.get('description', ""),
+                    ", ".join(task.get('tags', [])) if isinstance(task.get('tags'), list) else task.get(
+                        'tags', "")  # Tags
                 ]
 
-                # Append to sheet
-                self.sheets_service.append_row(row_data)
+                self.logger.debug(f"Prepared row data: {row_data}")
 
-                # Mark as synced in database
-                self.db_service.mark_as_synced(task['id'])
-                success_count += 1
-                self.logger.debug(f"Task ID {task['id']} synced successfully")
+                try:
+                    # Append to sheet
+                    self.sheets_service.append_row(row_data)
+
+                    # Mark as synced in database
+                    self.db_service.mark_as_synced(task['id'])
+                    success_count += 1
+                    self.logger.debug(f"Task ID {task['id']} synced successfully")
+
+                except Exception as e:
+                    self.logger.error(f"Error syncing individual task: {e}")
+                    # Log the specific row data that caused the error
+                    self.logger.error(f"Problematic row data: {row_data}")
 
             # Show success notification
             self.logger.info(f"Successfully synced {success_count} tasks to Google Sheets")
@@ -325,6 +339,9 @@ class UIService:
         Returns:
             str: Name of the current task, or empty string if no task is running
         """
+        self.logger.debug(f"Current timer state: {self.time_tracker.state}")
+        self.logger.debug(f"Current task name from tracker: {self.time_tracker.task_name}")
+
         if self.time_tracker.state == TimerState.STOPPED:
             return ""
         return self.time_tracker.task_name

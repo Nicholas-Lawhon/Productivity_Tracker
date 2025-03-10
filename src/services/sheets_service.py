@@ -47,7 +47,7 @@ class SheetsService:
                 self.authenticate()
 
             # Specify the expected headers based on your sheet structure
-            expected_headers = ['Date', 'Time(hrs)', 'Task', 'Description', 'Tags']
+            expected_headers = ['Date', 'Time', 'Task', 'Description', 'Category']
 
             records = self.sheet.get_all_records(expected_headers=expected_headers)
             self.logger.debug(f"Retrieved {len(records)} records from spreadsheet")
@@ -61,9 +61,16 @@ class SheetsService:
             self.logger.info(f"Appending row to spreadsheet: {row_data}")
             if not self.sheet:
                 self.authenticate()
+
+            # Log the column headers to verify
+            headers = self.sheet.row_values(1)
+            self.logger.debug(f"Spreadsheet headers: {headers}")
+
             result = self.sheet.append_row(row_data)
             self.logger.debug("Row successfully appended")
             return result
         except Exception as e:
             self.logger.error(f"Error appending row: {e}")
+            # If possible, log the exact error details
+            self.logger.error(f"Row data: {row_data}")
             raise
