@@ -1,8 +1,0 @@
-2025-03-08 02:38:18 - INFO - DatabaseService initialized
-2025-03-08 02:38:18 - INFO - Initializing database
-2025-03-08 02:38:18 - INFO - Database initialized successfully
-2025-03-08 02:38:18 - INFO - Adding new session task: Testing Database Implementation on 2023-11-06 (1.5 hours)
-2025-03-08 02:38:18 - INFO - Retrieving all tasks
-2025-03-08 02:38:18 - INFO - Retrieving unsynced tasks
-2025-03-08 02:38:18 - INFO - Marking task ID 2 as synced
-2025-03-08 02:38:18 - INFO - Retrieving unsynced tasks
