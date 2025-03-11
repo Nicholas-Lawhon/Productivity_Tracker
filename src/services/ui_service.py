@@ -181,10 +181,16 @@ class UIService:
             bool: True if stopped and saved successfully
         """
         task_name = self.get_current_task_name()
+        self.logger.info(f"Stopping current task")
         self.logger.info(f"Stopping task: '{task_name}'")
-        self.logger.info(f"Current task categories: {getattr(self, 'current_task_categories', 'None')}")
-        self.logger.info(f"Current task description: {getattr(self, 'current_task_description', 'None')}")
-        self.logger.info(f"Stopping task: '{task_name}'")
+
+        # Retrieve task details before stopping
+        current_task_name = self.get_current_task_name() or getattr(self, 'current_task_name', '')
+        current_categories = getattr(self, 'current_task_categories', [])
+        current_description = getattr(self, 'current_task_description', '')
+
+        self.logger.info(f"Current task categories: {current_categories}")
+        self.logger.info(f"Current task description: {current_description}")
 
         # Stop the timer and get elapsed time
         hours_elapsed = self.time_tracker.stop()

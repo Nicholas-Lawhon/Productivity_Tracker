@@ -150,6 +150,9 @@ class MainWindow(QtWidgets.QMainWindow):
         """
         self.logger.debug(f"Timer state changed to: {new_state.name}")
 
+        # Preserve task name even during idle
+        current_task = self.ui_service.get_current_task_name()
+
         # Update status label based on new state
         if new_state == TimerState.RUNNING:
             self.status_label.setText("Running")
@@ -161,7 +164,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.pause_resume_button.setEnabled(True)
             self.stop_button.setEnabled(True)
 
-            self.logger.info(f"Timer started for task: '{self.ui_service.get_current_task_name()}'")
+            self.logger.info(f"Timer started for task: '{current_task}'")
 
         elif new_state == TimerState.PAUSED:
             self.status_label.setText("Paused (User)")

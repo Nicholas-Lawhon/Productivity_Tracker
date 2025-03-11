@@ -944,3 +944,45 @@
 2025-03-09 22:35:12 - INFO - Retrieving unsynced tasks
 2025-03-09 22:35:12 - INFO - Application closing - no issues
 2025-03-09 22:35:12 - INFO - Application shut down
+2025-03-09 22:36:20 - INFO - Initializing main window
+2025-03-09 22:36:20 - INFO - Initializing UI Service
+2025-03-09 22:36:20 - INFO - DatabaseService initialized
+2025-03-09 22:36:20 - INFO - Initializing database
+2025-03-09 22:36:20 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 22:36:20 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 22:36:20 - INFO - Database initialized successfully
+2025-03-09 22:36:20 - INFO - Session tasks table exists: True
+2025-03-09 22:36:20 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 22:36:20 - INFO - UI Service initialization complete
+2025-03-09 22:36:20 - INFO - Initializing system tray icon
+2025-03-09 22:36:20 - INFO - System tray icon initialized
+2025-03-09 22:36:20 - INFO - Setting up system tray menu and actions
+2025-03-09 22:36:20 - INFO - System tray icon is now visible
+2025-03-09 22:36:20 - INFO - Retrieving unsynced tasks
+2025-03-09 22:36:20 - INFO - Retrieving unsynced tasks
+2025-03-09 22:36:20 - INFO - Main window initialization complete
+2025-03-09 22:36:20 - INFO - Initializing floating pill widget
+2025-03-09 22:36:29 - INFO - New task created: 'Test #6' with tags: ['Gaming', 'Leetcode', 'Personal Project', 'School']
+2025-03-09 22:36:29 - INFO - Starting new task: 'Test #6'
+2025-03-09 22:36:29 - INFO - Timer started for task: 'Test #6'
+2025-03-09 22:36:29 - INFO - Timer started for task: 'Test #6'
+2025-03-09 22:36:29 - INFO - Retrieving unsynced tasks
+2025-03-09 22:36:29 - INFO - Task 'Test #6' started successfully
+2025-03-09 22:36:50 - INFO - Initializing main window
+2025-03-09 22:36:50 - INFO - Initializing UI Service
+2025-03-09 22:36:50 - INFO - DatabaseService initialized
+2025-03-09 22:36:50 - INFO - Initializing database
+2025-03-09 22:36:50 - INFO - Database path: C:\Projects\Productivity_Tracker\data\local_db.sqlite
+2025-03-09 22:36:50 - INFO - Directory already exists: C:\Projects\Productivity_Tracker\data
+2025-03-09 22:36:50 - INFO - Database initialized successfully
+2025-03-09 22:36:50 - INFO - Session tasks table exists: True
+2025-03-09 22:36:50 - INFO - SheetsService initialized for spreadsheet: Productivity Tracker
+2025-03-09 22:36:50 - INFO - UI Service initialization complete
+2025-03-09 22:36:50 - INFO - Initializing system tray icon
+2025-03-09 22:36:50 - INFO - System tray icon initialized
+2025-03-09 22:36:50 - INFO - Setting up system tray menu and actions
+2025-03-09 22:36:50 - INFO - System tray icon is now visible
+2025-03-09 22:36:50 - INFO - Retrieving unsynced tasks
+2025-03-09 22:36:50 - INFO - Retrieving unsynced tasks
+2025-03-09 22:36:50 - INFO - Main window initialization complete
+2025-03-09 22:36:50 - INFO - Initializing floating pill widget

@@ -9,3 +9,5 @@
 # My ignores
 /credentials
 ideas.txt
+/logs/
+/data/
