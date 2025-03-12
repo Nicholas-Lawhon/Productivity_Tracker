@@ -29,15 +29,22 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 
         self.setToolTip("Productivity Tracker")
 
-        # Set a default icon if theme icon is not available
-        icon = QtGui.QIcon.fromTheme("appointment-soon")
-        if icon.isNull():
-            # Fallback to a standard icon from the style
-            if parent:
-                self.logger.debug("Using fallback icon from parent style")
-                icon = parent.style().standardIcon(QtWidgets.QStyle.SP_ComputerIcon)
-            else:
-                self.logger.warning("No parent provided for fallback icon")
+        # Try to use custom icon first
+        icon_path = os.path.join(get_project_root(), 'resources', 'tray_icon.png')
+        if os.path.exists(icon_path):
+            self.logger.debug(f"Using custom icon from: {icon_path}")
+            icon = QtGui.QIcon(icon_path)
+        else:
+            # Fallback to theme or standard icon
+            self.logger.warning("Custom icon not found, using fallback")
+            icon = QtGui.QIcon.fromTheme("appointment-soon")
+            if icon.isNull():
+                # Fallback to a standard icon from the style
+                if parent:
+                    self.logger.debug("Using fallback icon from parent style")
+                    icon = parent.style().standardIcon(QtWidgets.QStyle.SP_ComputerIcon)
+                else:
+                    self.logger.warning("No parent provided for fallback icon")
 
         self.setIcon(icon)
         self.logger.debug("System tray icon set")
@@ -167,6 +174,8 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
         # Set initial action states
         self.update_actions(TimerState.STOPPED)
 
+        self.test_icons()  # This is just for testing
+
     def update_actions(self, timer_state):
         """
         Update the enabled state of menu actions based on timer state.
@@ -192,6 +201,7 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
                     self.logger.debug(f"Updated tooltip: {tooltip}")
 
             # Change tray icon to indicate running state
+            self.logger.debug(f"Setting icon for state: {timer_state.name}")
             self._set_icon_for_state(timer_state)
 
         elif timer_state in [TimerState.PAUSED, TimerState.IDLE]:
@@ -211,6 +221,7 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
                     self.logger.debug(f"Updated tooltip: {tooltip}")
 
             # Change tray icon to indicate paused/idle state
+            self.logger.debug(f"Setting icon for state: {timer_state.name}")
             self._set_icon_for_state(timer_state)
 
         elif timer_state == TimerState.STOPPED:
@@ -225,6 +236,7 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
             self.logger.debug("Reset tooltip to default (Ready)")
 
             # Reset icon
+            self.logger.debug(f"Setting icon for state: {timer_state.name}")
             self._set_icon_for_state(timer_state)
 
         # Sync button is always enabled if there are unsynced tasks
@@ -240,56 +252,76 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
                 self.logger.debug(f"Updated tooltip with sync info: {tooltip}")
 
     def _set_icon_for_state(self, state):
-        """
-        Set the system tray icon based on the current timer state.
+        def _set_icon_for_state(self, state):
+            """
+            Set the system tray icon based on the current timer state.
 
-        Args:
-            state (TimerState): Current state of the timer
-        """
-        self.logger.debug(f"Setting system tray icon for state: {state.name}")
+            Args:
+                state (TimerState): Current state of the timer
+            """
+            self.logger.debug(f"Setting system tray icon for state: {state.name}")
 
-        # Create colored icons for different states
-        # This is a simple approach - for production, you'd use actual icon files
+            # Check for custom state-specific icons
+            icon_path = None
 
-        if state == TimerState.RUNNING:
-            # Try to use a "running" themed icon
-            icon = QtGui.QIcon.fromTheme("media-playback-start")
-            if icon.isNull():
-                # Or create a colored icon (green)
-                self.logger.debug("Creating green icon for running state")
+            # Select icon based on state
+            if state == TimerState.RUNNING:
+                # Use running icon for active timers
+                icon_path = os.path.join(get_project_root(), 'resources', 'tray_icon_running.png')
+                self.logger.debug(f"Using running icon for state: {state.name}")
+            elif state in [TimerState.PAUSED, TimerState.IDLE]:
+                # Use idle icon for paused or idle states
+                icon_path = os.path.join(get_project_root(), 'resources', 'tray_icon_idle.png')
+                self.logger.debug(f"Using idle/paused icon for state: {state.name}")
+            else:  # STOPPED or any other state
+                # Use default icon
+                icon_path = os.path.join(get_project_root(), 'resources', 'tray_icon.png')
+                self.logger.debug(f"Using default icon for state: {state.name}")
+
+            # Log the full path we're trying to use
+            self.logger.debug(f"Attempting to load icon from: {icon_path}")
+
+            # Check if file exists
+            if os.path.exists(icon_path):
+                # Load the icon
+                icon = QtGui.QIcon(icon_path)
+
+                # Check if icon loaded successfully
+                if not icon.isNull():
+                    # Set the icon
+                    self.setIcon(icon)
+                    self.logger.debug(f"Successfully set icon for state: {state.name}")
+                    return
+                else:
+                    self.logger.warning(f"Failed to load icon from {icon_path} (icon is null)")
+            else:
+                self.logger.warning(f"Icon file not found: {icon_path}")
+
+            # Fallback to default icons if custom ones fail
+            if state == TimerState.RUNNING:
+                # Create a green icon for running state
                 pixmap = QtGui.QPixmap(16, 16)
                 pixmap.fill(QtGui.QColor(0, 255, 0))
                 icon = QtGui.QIcon(pixmap)
-
-        elif state in [TimerState.PAUSED, TimerState.IDLE]:
-            # Try to use a "paused" themed icon
-            icon = QtGui.QIcon.fromTheme("media-playback-pause")
-            if icon.isNull():
-                # Or create a colored icon (yellow for pause, orange for idle)
-                color_name = "yellow" if state == TimerState.PAUSED else "orange"
-                self.logger.debug(f"Creating {color_name} icon for {state.name} state")
+            elif state in [TimerState.PAUSED, TimerState.IDLE]:
+                # Create yellow/orange icon for paused/idle state
                 pixmap = QtGui.QPixmap(16, 16)
                 color = QtGui.QColor(255, 255, 0) if state == TimerState.PAUSED else QtGui.QColor(255, 165, 0)
                 pixmap.fill(color)
                 icon = QtGui.QIcon(pixmap)
-
-        else:  # STOPPED
-            # Use default icon
-            icon = QtGui.QIcon.fromTheme("appointment-soon")
-            if icon.isNull():
-                # Fallback
-                self.logger.debug("Using fallback icon for stopped state")
+            else:  # STOPPED
+                # Use standard icon for stopped state
                 if self.parent_window:
                     icon = self.parent_window.style().standardIcon(QtWidgets.QStyle.SP_ComputerIcon)
                 else:
-                    self.logger.warning("No parent provided for fallback icon")
+                    # Create a gray icon as last resort
+                    pixmap = QtGui.QPixmap(16, 16)
+                    pixmap.fill(QtGui.QColor(128, 128, 128))
+                    icon = QtGui.QIcon(pixmap)
 
-        # Set the icon if we found/created one
-        if not icon.isNull():
+            # Set the fallback icon
             self.setIcon(icon)
-            self.logger.debug("System tray icon updated successfully")
-        else:
-            self.logger.warning("Failed to create icon for system tray")
+            self.logger.debug(f"Set fallback icon for state: {state.name}")
 
     def show_message(self, title, message, icon=QtWidgets.QSystemTrayIcon.Information, duration=5000):
         """
@@ -310,3 +342,29 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 
         self.showMessage(title, message, icon, duration)
         return True
+
+    def test_icons(self):
+        """Test if icon loading and changing works at all."""
+        self.logger.debug("Testing icon changing capabilities...")
+
+        # Try loading and setting each icon
+        for state_name, icon_file in [
+            ("default", "tray_icon.png"),
+            ("running", "tray_icon_running.png"),
+            ("idle", "tray_icon_idle.png")
+        ]:
+            icon_path = os.path.join(get_project_root(), 'resources', icon_file)
+            self.logger.debug(f"Testing icon: {icon_path}")
+
+            if os.path.exists(icon_path):
+                icon = QtGui.QIcon(icon_path)
+                if not icon.isNull():
+                    self.logger.debug(f"Setting test icon: {state_name}")
+                    self.setIcon(icon)
+                    # Sleep briefly to make the change visible
+                    import time
+                    time.sleep(1)
+                else:
+                    self.logger.warning(f"Test icon could not be loaded: {icon_file}")
+            else:
+                self.logger.warning(f"Test icon file not found: {icon_path}")

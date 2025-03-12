@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 from src.utils.time_tracker import TimerState, PauseReason, TimeTracker
 from src.services.ui_service import UIService
+from src.services.task_manager import TaskManager
 from src.ui.system_tray import SystemTrayIcon
 from src.ui.task_dialog import TaskDialog
 from src.utils.logger import AppLogger
@@ -33,6 +34,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Initialize services
         self.ui_service = UIService()
+        self.task_manager = TaskManager(self.ui_service)
 
         # Connect callbacks from service to UI methods
         self.ui_service.register_state_change_callback(self.handle_state_change)
@@ -63,8 +65,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.update_sync_status()
         self.logger.info("Main window initialization complete")
 
-        # Create floating pill widget
         self.floating_pill = FloatingPillWidget(self)
+        # Ensure pill is configured as a separate window, not a child widget
+        self.floating_pill.setParent(None)
         self.floating_pill.show()
 
         # Start with main window hidden
@@ -207,8 +210,43 @@ class MainWindow(QtWidgets.QMainWindow):
         # Change status label to indicate idle state
         self.status_label.setText("Paused (Idle detected)")
 
-        # You might want to change the background color to visually indicate idle state
+        # Change the background color to visually indicate idle state
         self.task_frame.setStyleSheet("QGroupBox { background-color: #FFEEEE; }")
+
+        # Show a popup dialog
+        task_name = self.ui_service.get_current_task_name()
+
+        # Use a non-modal dialog so it doesn't block the application
+        idle_dialog = QtWidgets.QMessageBox(self)
+        idle_dialog.setWindowTitle("Productivity Tracker")
+        idle_dialog.setText("Idle Detected")
+
+        # Include the task name in the message
+        if task_name:
+            idle_dialog.setInformativeText(
+                f"Timer for task \"{task_name}\" has been paused due to inactivity.\n"
+                "Click 'Resume' to continue tracking."
+            )
+        else:
+            idle_dialog.setInformativeText(
+                "Timer has been paused due to inactivity.\n"
+                "Click 'Resume' to continue tracking."
+            )
+
+        idle_dialog.setIcon(QtWidgets.QMessageBox.Information)
+
+        # Add Resume button
+        resume_button = idle_dialog.addButton("Resume", QtWidgets.QMessageBox.AcceptRole)
+        idle_dialog.addButton("Dismiss", QtWidgets.QMessageBox.RejectRole)
+
+        # Make the dialog non-modal so it doesn't block the application
+        idle_dialog.setWindowModality(QtCore.Qt.NonModal)
+
+        # Show the dialog
+        idle_dialog.show()
+
+        # Connect the clicked signal of the Resume button
+        resume_button.clicked.connect(self.resume_task)
 
     def handle_long_pause(self, duration):
         """
@@ -230,58 +268,82 @@ class MainWindow(QtWidgets.QMainWindow):
         if not self.isActiveWindow() and self.isVisible():
             QtWidgets.QApplication.alert(self)
 
+    # In MainWindow class
     def start_task_dialog(self):
-        """
-        Show dialog to enter a new task and start the timer.
-        """
-        self.logger.debug("Opening task dialog")
+        """Show dialog to enter a new task and start the timer."""
+        try:
+            self.logger.debug("Opening task dialog")
 
-        # Create and show the task dialog
-        dialog = TaskDialog(self)
-        result = dialog.exec_()
+            # Create and show the task dialog
+            dialog = TaskDialog(self)
+            result = dialog.exec_()
 
-        # If dialog was accepted (OK clicked)
-        if result == QtWidgets.QDialog.Accepted:
-            task_name, description, category = dialog.get_task_info()
+            # If dialog was accepted (OK clicked)
+            if result == QtWidgets.QDialog.Accepted:
+                task_name, description, category, disable_idle = dialog.get_task_info()
 
-            # Validate task name
-            if not task_name:
-                self.logger.warning("Attempted to start task with empty name")
-                QtWidgets.QMessageBox.warning(
-                    self,
-                    "Invalid Task",
-                    "Task name cannot be empty."
-                )
-                return
+                # Validate task name
+                if not task_name:
+                    self.logger.warning("Attempted to start task with empty name")
+                    QtWidgets.QMessageBox.warning(
+                        self,
+                        "Invalid Task",
+                        "Task name cannot be empty."
+                    )
+                    return
 
-            self.logger.debug(f"Starting new task: '{task_name}', Category: {category}")
+                self.logger.debug(
+                    f"Starting new task: '{task_name}', Category: {category}, Disable Idle: {disable_idle}")
 
-            # Start the task
-            self.start_task(task_name, description, category)
+                # Start the task directly
+                self.start_task(task_name, description, category, disable_idle)
 
-    def start_task(self, task_name, description=None, category=None):
-        """
-        Start the timer with the given task name.
+        except Exception as e:
+            self.logger.error(f"Error in start_task_dialog: {e}")
+            import traceback
+            self.logger.error(traceback.format_exc())
 
-        Args:
-            task_name (str): Name of the task to track
-            description (str, optional): Description of the task
-            category (str, optional): Category of the task
-        """
-        # Start the task in the service
-        success = self.ui_service.start_task(task_name, description, category)
+            # Show error to user
+            QtWidgets.QMessageBox.critical(
+                self,
+                "Error Starting Task",
+                f"An error occurred while starting the task: {str(e)}"
+            )
 
-        if success:
-            # Update UI with new task
-            self.task_name_label.setText(task_name)
+    def start_task(self, task_name, description=None, category=None, disable_idle=False):
+        """Start the timer with the given task name."""
+        try:
+            self.logger.debug(
+                f"Starting task: {task_name}, description: {description}, category: {category}, disable_idle: {disable_idle}")
 
-            # Enable control buttons
-            self.pause_resume_button.setEnabled(True)
-            self.stop_button.setEnabled(True)
+            # Start the task in the service
+            success = self.ui_service.start_task(task_name, description, category, disable_idle)
 
-            # Reset any warning styles
-            self.status_label.setStyleSheet("")
-            self.task_frame.setStyleSheet("")
+            if success:
+                # Update UI with new task
+                self.task_name_label.setText(task_name)
+
+                # Enable control buttons
+                self.pause_resume_button.setEnabled(True)
+                self.stop_button.setEnabled(True)
+
+                # Reset any warning styles
+                self.status_label.setStyleSheet("")
+                self.task_frame.setStyleSheet("")
+
+            return success
+        except Exception as e:
+            self.logger.error(f"Error in start_task: {e}")
+            import traceback
+            self.logger.error(traceback.format_exc())
+
+            # Show error to user
+            QtWidgets.QMessageBox.critical(
+                self,
+                "Error Starting Task",
+                f"An error occurred while starting the task: {str(e)}"
+            )
+            return False
 
     def toggle_pause_resume(self):
         """
@@ -514,9 +576,11 @@ class MainWindow(QtWidgets.QMainWindow):
 
             if reply == QtWidgets.QMessageBox.Yes:
                 self.logger.info("User confirmed exit with timer running - stopping timer")
-                # Optionally stop the timer and save the task
+                # Stop the timer and save the task
                 self.ui_service.stop_task()
                 event.accept()
+                # Terminate the application
+                QtWidgets.QApplication.quit()
             else:
                 self.logger.info("Exit cancelled - timer still running")
                 # Cancel the close event
@@ -539,10 +603,14 @@ class MainWindow(QtWidgets.QMainWindow):
                     # Sync and then accept the close event
                     self.sync_to_sheets()
                     event.accept()
+                    # Terminate the application
+                    QtWidgets.QApplication.quit()
                 elif reply == QtWidgets.QMessageBox.No:
                     self.logger.info("User chose to exit without syncing")
                     # Just accept the close event
                     event.accept()
+                    # Terminate the application
+                    QtWidgets.QApplication.quit()
                 else:  # Cancel
                     self.logger.info("Exit cancelled due to pending syncs")
                     event.ignore()
@@ -550,6 +618,48 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.logger.info("Application closing - no issues")
                 # No issues, accept the close event
                 event.accept()
+                # Terminate the application
+                QtWidgets.QApplication.quit()
 
         if event.isAccepted():
             self.logger.info("Application shut down")
+
+    def start_task_from_pill(self):
+        """Special method to be called by the floating pill to start a new task."""
+        self.logger.debug("Starting task from floating pill")
+
+        # Show the task dialog directly from here
+        dialog = TaskDialog(self)
+        result = dialog.exec_()
+
+        # If dialog was accepted (OK clicked)
+        if result == QtWidgets.QDialog.Accepted:
+            task_name, description, category, disable_idle = dialog.get_task_info()
+
+            # Validate task name
+            if not task_name:
+                self.logger.warning("Attempted to start task with empty name")
+                return
+
+            # Start the task directly
+            self.ui_service.start_task(task_name, description, category, disable_idle)
+
+            # Update UI
+            self.task_name_label.setText(task_name)
+            self.pause_resume_button.setEnabled(True)
+            self.stop_button.setEnabled(True)
+            self.status_label.setStyleSheet("")
+            self.task_frame.setStyleSheet("")
+
+    def update_ui_for_running_task(self, task_name):
+        """Update UI elements when a task starts."""
+        # Update UI with new task
+        self.task_name_label.setText(task_name)
+
+        # Enable control buttons
+        self.pause_resume_button.setEnabled(True)
+        self.stop_button.setEnabled(True)
+
+        # Reset any warning styles
+        self.status_label.setStyleSheet("")
+        self.task_frame.setStyleSheet("")

@@ -21,7 +21,7 @@ class PauseReason(Enum):
 
 
 class TimeTracker:
-    def __init__(self, task_name="", paused_duration_alert=600, idle_threshold=300):
+    def __init__(self, task_name="", paused_duration_alert=600, idle_threshold=10):
         self.state = TimerState.STOPPED
         self.task_name = task_name
         self.start_time = None
@@ -159,6 +159,9 @@ class TimeTracker:
 
     def check_idle(self):
         """Check if system is idle and handle appropriately."""
+        if hasattr(self, 'disable_idle_check') and self.disable_idle_check:
+            return False
+
         if self.state == TimerState.RUNNING:
             # Get system idle time in seconds
             idle_time = self._get_system_idle_time()

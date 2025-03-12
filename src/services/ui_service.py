@@ -99,7 +99,7 @@ class UIService:
         if self._long_pause_callback:
             self._long_pause_callback(duration)
 
-    def start_task(self, task_name, description=None, categories=None):
+    def start_task(self, task_name, description=None, categories=None, disable_idle_detection=False):
         """
         Start tracking a new task.
 
@@ -107,9 +107,11 @@ class UIService:
             task_name (str): Name of the task
             description (str, optional): Task description
             categories (list, optional): List of categories/tags for the task
+            disable_idle_detection (bool, optional): Disable idle detection
 
         Returns:
             bool: True if started successfully
+            :param disable_idle_detection:
         """
         self.logger.info(f"Starting new task: '{task_name}'")
 
@@ -124,11 +126,16 @@ class UIService:
         # Store additional info as properties
         self.current_task_description = description
         self.current_task_categories = categories
+        self.disable_idle_detection = disable_idle_detection
+
+        self.logger.debug(f"Idle detection {'disabled' if disable_idle_detection else 'enabled'} for this task")
 
         # Start the task
         success = self.time_tracker.start(task_name)
 
         if success:
+            # Set the idle detection flag on the time tracker
+            self.time_tracker.disable_idle_check = disable_idle_detection
             self.logger.info(f"Task '{task_name}' started successfully")
         else:
             self.logger.warning(f"Failed to start task '{task_name}'")

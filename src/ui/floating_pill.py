@@ -29,8 +29,26 @@ class FloatingPillWidget(QtWidgets.QWidget):
         self.logger.info("Initializing floating pill widget")
 
         # Store reference to main window and UI service
+        if main_window is None:
+            self.logger.critical("Main window reference is None")
+            raise ValueError("Main window reference cannot be None")
+
         self.main_window = main_window
+        self.task_manager = main_window.task_manager
+
+        # Explicitly set the parent to the main window to maintain the relationship
+        self.setParent(main_window)
+
+        # Ensure UI service is initialized
+        if not hasattr(main_window, 'ui_service') or main_window.ui_service is None:
+            self.logger.critical("UI service not initialized in main window")
+            raise ValueError("UI service must be initialized in main window")
+
         self.ui_service = main_window.ui_service
+
+        # Log to confirm references
+        self.logger.debug(f"Main window reference: {self.main_window}")
+        self.logger.debug(f"UI service reference: {self.ui_service}")
 
         # Set window flags for floating behavior
         self.setWindowFlags(
@@ -103,7 +121,7 @@ class FloatingPillWidget(QtWidgets.QWidget):
         self.start_button.setMaximumWidth(24)
         self.start_button.setMaximumHeight(24)
         self.start_button.setToolTip("Start New Task")
-        self.start_button.clicked.connect(self.main_window.start_task_dialog)
+        self.start_button.clicked.connect(self.safe_start)
         self.button_layout.addWidget(self.start_button)
 
         # Pause/Resume button
@@ -165,8 +183,15 @@ class FloatingPillWidget(QtWidgets.QWidget):
         Called by the update timer.
         """
         # Update timer display
-        elapsed_time = self.ui_service.get_elapsed_time_formatted()
-        self.timer_label.setText(elapsed_time)
+        timer_state = self.ui_service.get_timer_state()
+
+        if timer_state == TimerState.STOPPED:
+            # Reset timer display when no task is running
+            self.timer_label.setText("00:00:00")
+        else:
+            # Show elapsed time for running or paused tasks
+            elapsed_time = self.ui_service.get_elapsed_time_formatted()
+            self.timer_label.setText(elapsed_time)
 
         # Update task name
         task_name = self.ui_service.get_current_task_name()
@@ -271,3 +296,25 @@ class FloatingPillWidget(QtWidgets.QWidget):
             # Show main window on double-click
             self.show_main_window()
             event.accept()
+
+    def safe_start(self):
+        """Safely handle start button click."""
+        try:
+            self.logger.debug("Start button clicked in floating pill")
+
+            # Show floating message to indicate what's happening
+            QtWidgets.QToolTip.showText(
+                self.mapToGlobal(self.start_button.pos()),
+                "Creating new task...",
+                self
+            )
+
+            # Use the task manager directly
+            success = self.task_manager.prompt_for_new_task(self.main_window)
+            if not success:
+                self.logger.warning("Task creation was cancelled or failed")
+
+        except Exception as e:
+            self.logger.error(f"Error starting task from pill: {e}")
+            import traceback
+            self.logger.error(traceback.format_exc())

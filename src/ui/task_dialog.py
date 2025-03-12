@@ -77,6 +77,12 @@ class TaskDialog(QtWidgets.QDialog):
         self.categories = ["Chill", "Gaming", "Leetcode", "Personal Project", "School", "Self-learning", "Other", "None"]
         self.category_checkboxes = {}
 
+        # Idle Detection checkbox
+        self.disable_idle_checkbox = QtWidgets.QCheckBox("Disable Idle Detection")
+        self.disable_idle_checkbox.setToolTip(
+            "Check this if you don't want the timer to pause when you're inactive (e.g., watching videos)")
+        layout.addWidget(self.disable_idle_checkbox)
+
         for category in self.categories:
             checkbox = QtWidgets.QCheckBox(category)
             self.category_layout.addWidget(checkbox)
@@ -159,7 +165,7 @@ class TaskDialog(QtWidgets.QDialog):
         Get the entered task information.
 
         Returns:
-            tuple: (task_name, description, categories)
+            tuple: (task_name, description, categories, disable_idle_detection)
         """
         task_name = self.task_name_input.text().strip()
         description = self.description_input.toPlainText().strip()
@@ -168,12 +174,16 @@ class TaskDialog(QtWidgets.QDialog):
         selected_categories = [cat for cat, checkbox in self.category_checkboxes.items()
                                if checkbox.isChecked()]
 
+        # Get idle detection setting
+        disable_idle_detection = self.disable_idle_checkbox.isChecked()
+
         # Join selected categories with commas for easier storage/display
         categories_str = ", ".join(selected_categories)
 
-        self.logger.debug(f"Task info retrieved - Name: '{task_name}', Tags: {categories_str}")
+        self.logger.debug(
+            f"Task info retrieved - Name: '{task_name}', Tags: {categories_str}, Disable Idle: {disable_idle_detection}")
 
-        return task_name, description, selected_categories
+        return task_name, description, selected_categories, disable_idle_detection
 
     def closeEvent(self, event):
         """
