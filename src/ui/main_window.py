@@ -47,7 +47,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.logger.debug("UI components initialized")
 
         # Initialize system tray
+        print("About to initialize system tray icon")
         self.system_tray = SystemTrayIcon(self)
+        print("System tray icon initialized")
+
+        # Verify parent is properly set
+        print(f"Parent set: {self.system_tray.parent_window is not None}")
+        print(f"Parent is self: {self.system_tray.parent_window is self}")
         self.system_tray.setup(self.toggle_window_visibility,
                                self.start_task_dialog,
                                self.pause_task,
@@ -56,6 +62,36 @@ class MainWindow(QtWidgets.QMainWindow):
                                self.sync_to_sheets,
                                self.close)
         self.logger.debug("System tray initialized")
+
+        # Ensure system tray icon is visible
+        self.system_tray.show()
+
+        # Make sure the main window is visible and active
+        self.show()
+        self.raise_()
+        self.activateWindow()
+
+        # Update the system tray icon to reflect current state
+        if hasattr(self, 'ui_service'):
+            current_state = self.ui_service.get_timer_state()
+            self.system_tray.update_actions(current_state)
+
+        # If we started minimized to system tray, hide the main window
+        if os.environ.get('START_MINIMIZED') == '1':
+            self.hide()
+        else:
+            # Otherwise make sure the main window is visible and active
+            self.show()
+            self.raise_()
+            self.activateWindow()
+
+        # Update the system tray icon to reflect current state
+        if self.ui_service:
+            current_state = self.ui_service.get_timer_state()
+            self.system_tray.update_actions(current_state)
+
+        # Call test_icons to ensure icons are loaded properly
+        # self.system_tray.test_icons()  # Uncomment for debugging if needed
 
         # Window properties
         self.setWindowTitle("Productivity Tracker")
@@ -631,7 +667,26 @@ class MainWindow(QtWidgets.QMainWindow):
                 event.accept()
 
         if event.isAccepted():
-            self.logger.info("Application shut down")
+            # Show a final confirmation for quitting vs minimizing
+            reply = QtWidgets.QMessageBox.question(
+                self,
+                'Exit or Minimize',
+                'Do you want to exit the application completely?\n\n'
+                'Click "Yes" to exit completely.\n'
+                'Click "No" to minimize to system tray.',
+                QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No,
+                QtWidgets.QMessageBox.No
+            )
+
+            if reply == QtWidgets.QMessageBox.Yes:
+                self.logger.info("User chose to exit application completely")
+                # Explicitly quit the application
+                QtWidgets.QApplication.instance().quit()
+            else:
+                self.logger.info("User chose to minimize to system tray")
+                # Prevent the default close and just hide the window
+                event.ignore()
+                self.hide()
 
     def start_task_from_pill(self):
         """Special method to be called by the floating pill to start a new task."""

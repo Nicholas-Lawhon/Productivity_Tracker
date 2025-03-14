@@ -7,10 +7,36 @@ import os
 class DatabaseService:
     def __init__(self, db_path, log_dir='logs'):
         """Initializes the database service with the path to the database."""
+        # Add safety check for db_path
+        if db_path is None:
+            print("Warning: db_path is None, using default")
+            db_path = os.path.join(os.getcwd(), 'data', 'local_db.sqlite')
+
         self.db_path = db_path
-        # Initialize logger
-        self.logger = AppLogger(log_dir)
-        self.logger.info("DatabaseService initialized")
+
+        # Add safety check for log_dir
+        if log_dir is None:
+            print("Warning: log_dir is None, using default")
+            log_dir = os.path.join(os.getcwd(), 'logs')
+
+        # Make sure log directory exists
+        try:
+            os.makedirs(log_dir, exist_ok=True)
+            print(f"Ensured log directory exists: {log_dir}")
+        except Exception as e:
+            print(f"Error creating log directory: {e}")
+
+        # Initialize logger with extra error handling
+        try:
+            self.logger = AppLogger(log_dir)
+            self.logger.info("DatabaseService initialized")
+            self.logger.info(f"Database path: {db_path}")
+            self.logger.info(f"Log directory: {log_dir}")
+        except Exception as e:
+            print(f"Error initializing logger: {e}")
+            # Create a basic logger or use print statements
+            self.logger = SimpleLogger()
+
         self._ensure_directory_exists()
 
         try:
@@ -360,3 +386,19 @@ class DatabaseService:
             if conn:
                 conn.close()
 
+
+class SimpleLogger:
+    def info(self, message):
+        print(f"INFO: {message}")
+
+    def debug(self, message):
+        print(f"DEBUG: {message}")
+
+    def warning(self, message):
+        print(f"WARNING: {message}")
+
+    def error(self, message):
+        print(f"ERROR: {message}")
+
+    def critical(self, message):
+        print(f"CRITICAL: {message}")
