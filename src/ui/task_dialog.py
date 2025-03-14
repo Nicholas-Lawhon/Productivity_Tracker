@@ -43,6 +43,13 @@ class TaskDialog(QtWidgets.QDialog):
         """
         self.logger.debug("Setting up task dialog UI")
 
+        # Reset any inherited styles that might affect the dialog
+        self.setStyleSheet("")
+
+        # Make sure all child widgets use the default system style
+        for child in self.findChildren(QtWidgets.QWidget):
+            child.setStyleSheet("")
+
         # Create layout
         layout = QtWidgets.QVBoxLayout()
 
@@ -115,6 +122,28 @@ class TaskDialog(QtWidgets.QDialog):
         self.button_box.accepted.connect(self.validate_and_accept)
         self.button_box.rejected.connect(self.reject)
         layout.addWidget(self.button_box)
+
+        # Fix button styles - explicitly set them to use system style
+        self.button_box.setStyleSheet("""
+            QPushButton {
+                background-color: transparent;
+                border: 1px solid palette(mid);
+                padding: 4px 16px;
+                border-radius: 2px;
+            }
+            QPushButton:hover {
+                background-color: palette(light);
+            }
+            QPushButton:pressed {
+                background-color: palette(mid);
+            }
+        """)
+
+        # Force buttons to update their appearance
+        ok_button = self.button_box.button(QtWidgets.QDialogButtonBox.Ok)
+        cancel_button = self.button_box.button(QtWidgets.QDialogButtonBox.Cancel)
+        ok_button.setText(ok_button.text())  # Force style refresh
+        cancel_button.setText(cancel_button.text())  # Force style refresh
 
         # Set dialog layout
         self.setLayout(layout)

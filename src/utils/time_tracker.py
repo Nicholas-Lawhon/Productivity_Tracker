@@ -21,7 +21,7 @@ class PauseReason(Enum):
 
 
 class TimeTracker:
-    def __init__(self, task_name="", paused_duration_alert=600, idle_threshold=10):
+    def __init__(self, task_name="", paused_duration_alert=600, idle_threshold=300):
         self.state = TimerState.STOPPED
         self.task_name = task_name
         self.start_time = None

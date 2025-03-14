@@ -65,10 +65,19 @@ class MainWindow(QtWidgets.QMainWindow):
         self.update_sync_status()
         self.logger.info("Main window initialization complete")
 
+        # Initialize the dockable floating pill as a separate window
         self.floating_pill = FloatingPillWidget(self)
-        # Ensure pill is configured as a separate window, not a child widget
+        # Make sure it's a top-level window
         self.floating_pill.setParent(None)
+        # Force a position in the visible area of the screen before showing
+        screen = QtWidgets.QApplication.primaryScreen().availableGeometry()
+        self.floating_pill.move((screen.width() - self.floating_pill.width()) // 2, 40)
+        # Set the proper size - ensure it's wide enough
+        self.floating_pill.resize(320, 40)
+        # Show the floating pill
         self.floating_pill.show()
+        # Ensure the floating pill is brought to front
+        self.floating_pill.raise_()
 
         # Start with main window hidden
         self.hide()
@@ -415,9 +424,6 @@ class MainWindow(QtWidgets.QMainWindow):
             if result:
                 self.logger.info("Task stopped and saved to database")
 
-                # Reset UI - most of this is handled in handle_state_change
-                # but we can do additional UI updates specific to stopping here
-
                 # Update sync status since we added a new task
                 self.update_sync_status()
 
@@ -442,7 +448,9 @@ class MainWindow(QtWidgets.QMainWindow):
             )
 
             if reply == QtWidgets.QMessageBox.Yes:
-                self.sync_to_sheets()
+                # Create a separate non-blocking timer to call sync
+                # This prevents the sync action from being in the same call stack as the dialog
+                QtCore.QTimer.singleShot(100, self.sync_to_sheets)
 
     def toggle_window_visibility(self):
         """
@@ -468,7 +476,6 @@ class MainWindow(QtWidgets.QMainWindow):
         progress_dialog.show()
 
         # Create a separate thread for sync operation
-        # This is a simplified version - in a real app, you'd use QThread properly
         QtCore.QTimer.singleShot(100, lambda: self._do_sync(progress_dialog))
 
     def _do_sync(self, progress_dialog):
@@ -488,18 +495,24 @@ class MainWindow(QtWidgets.QMainWindow):
             # Show result
             if success:
                 self.logger.info("Tasks successfully synced to Google Sheets")
-                QtWidgets.QMessageBox.information(
-                    self,
+                message_box = QtWidgets.QMessageBox(
+                    QtWidgets.QMessageBox.Information,
                     "Sync Complete",
-                    "Tasks successfully synced to Google Sheets."
+                    "Tasks successfully synced to Google Sheets.",
+                    QtWidgets.QMessageBox.Ok,
+                    self
                 )
+                message_box.exec_()
             else:
                 self.logger.warning("Failed to sync tasks to Google Sheets")
-                QtWidgets.QMessageBox.warning(
-                    self,
+                message_box = QtWidgets.QMessageBox(
+                    QtWidgets.QMessageBox.Warning,
                     "Sync Failed",
-                    "Failed to sync tasks to Google Sheets."
+                    "Failed to sync tasks to Google Sheets.",
+                    QtWidgets.QMessageBox.Ok,
+                    self
                 )
+                message_box.exec_()
 
             # Update sync status
             self.update_sync_status()
@@ -507,11 +520,14 @@ class MainWindow(QtWidgets.QMainWindow):
         except Exception as e:
             self.logger.error(f"Error during sync: {str(e)}")
             progress_dialog.close()
-            QtWidgets.QMessageBox.critical(
-                self,
+            message_box = QtWidgets.QMessageBox(
+                QtWidgets.QMessageBox.Critical,
                 "Sync Error",
-                f"An error occurred while syncing: {str(e)}"
+                f"An error occurred while syncing: {str(e)}",
+                QtWidgets.QMessageBox.Ok,
+                self
             )
+            message_box.exec_()
 
     def update_sync_status(self):
         """
@@ -579,8 +595,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 # Stop the timer and save the task
                 self.ui_service.stop_task()
                 event.accept()
-                # Terminate the application
-                QtWidgets.QApplication.quit()
             else:
                 self.logger.info("Exit cancelled - timer still running")
                 # Cancel the close event
@@ -600,17 +614,14 @@ class MainWindow(QtWidgets.QMainWindow):
 
                 if reply == QtWidgets.QMessageBox.Yes:
                     self.logger.info("User chose to sync before exit")
-                    # Sync and then accept the close event
+                    # Sync but don't automatically exit (remove auto-termination)
                     self.sync_to_sheets()
+                    # Only now accept the event
                     event.accept()
-                    # Terminate the application
-                    QtWidgets.QApplication.quit()
                 elif reply == QtWidgets.QMessageBox.No:
                     self.logger.info("User chose to exit without syncing")
                     # Just accept the close event
                     event.accept()
-                    # Terminate the application
-                    QtWidgets.QApplication.quit()
                 else:  # Cancel
                     self.logger.info("Exit cancelled due to pending syncs")
                     event.ignore()
@@ -618,8 +629,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.logger.info("Application closing - no issues")
                 # No issues, accept the close event
                 event.accept()
-                # Terminate the application
-                QtWidgets.QApplication.quit()
 
         if event.isAccepted():
             self.logger.info("Application shut down")

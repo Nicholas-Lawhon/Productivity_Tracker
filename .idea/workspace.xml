@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b314b961-44a9-492d-b3d8-c8c5366f1872" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/services/task_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/db_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/db_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ui_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ui_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/main/Analysis-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/main/EXE-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/main/PKG-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/main/PYZ-00.pyz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/main/PYZ-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/main/base_library.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/main/main.pkg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/main/warn-main.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/main/xref-main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.spec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/desktop_shortcut_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/task_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/task_manager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/floating_pill.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/floating_pill.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/main_window.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/system_tray.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/system_tray.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/task_dialog.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/task_dialog.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/time_tracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/time_tracker.py" afterDir="false" />
     </list>
@@ -42,6 +50,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.build_script.executor": "Run",
     "Python.floating_pill.executor": "Run",
     "Python.main.executor": "Run",
     "Python.main_window.executor": "Run",
@@ -83,7 +92,10 @@
       <workItem from="1741474157688" duration="11960000" />
       <workItem from="1741561049474" duration="26946000" />
       <workItem from="1741734152913" duration="4377000" />
-      <workItem from="1741738823529" duration="7609000" />
+      <workItem from="1741738823529" duration="8076000" />
+      <workItem from="1741749059819" duration="1856000" />
+      <workItem from="1741879189898" duration="6711000" />
+      <workItem from="1741886231573" duration="2487000" />
     </task>
     <servers />
   </component>
@@ -97,7 +109,8 @@
     <SUITE FILE_PATH="coverage/Productivity_Tracker$sheets_service.coverage" NAME="sheets_service Coverage Results" MODIFIED="1741415629565" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/services" />
     <SUITE FILE_PATH="coverage/Productivity_Tracker$ui_service.coverage" NAME="ui_service Coverage Results" MODIFIED="1741576979802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/services" />
     <SUITE FILE_PATH="coverage/Productivity_Tracker$system_tray.coverage" NAME="system_tray Coverage Results" MODIFIED="1741745541022" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/ui" />
-    <SUITE FILE_PATH="coverage/Productivity_Tracker$main.coverage" NAME="main Coverage Results" MODIFIED="1741746242997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Productivity_Tracker$main.coverage" NAME="main Coverage Results" MODIFIED="1741885790478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Productivity_Tracker$build_script.coverage" NAME="build_script Coverage Results" MODIFIED="1741886750273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Productivity_Tracker$test_connection.coverage" NAME="test_connection Coverage Results" MODIFIED="1741416657028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/api" />
   </component>
 </project>
