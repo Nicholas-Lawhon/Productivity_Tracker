@@ -5,26 +5,38 @@ import os
 
 
 class DatabaseService:
-    def __init__(self, db_path, log_dir='logs'):
+    def __init__(self, db_path, log_dir=None):
         """Initializes the database service with the path to the database."""
         # Add safety check for db_path
         if db_path is None:
-            print("Warning: db_path is None, using default")
-            db_path = os.path.join(os.getcwd(), 'data', 'local_db.sqlite')
+            from src.utils.path_utils import get_project_root
+            project_root = get_project_root()
+            db_path = os.path.join(project_root, 'data', 'local_db.sqlite')
+            print(f"Warning: db_path was None, using: {db_path}")
 
         self.db_path = db_path
 
         # Add safety check for log_dir
         if log_dir is None:
-            print("Warning: log_dir is None, using default")
-            log_dir = os.path.join(os.getcwd(), 'logs')
+            from src.utils.path_utils import get_project_root
+            project_root = get_project_root()
+            log_dir = os.path.join(project_root, 'logs')
+            print(f"Warning: log_dir was None, using: {log_dir}")
+
+        # Make sure DB directory exists
+        db_dir = os.path.dirname(db_path)
+        try:
+            os.makedirs(db_dir, exist_ok=True)
+            print(f"Ensured database directory exists: {db_dir}")
+        except Exception as e:
+            print(f"Error with database directory: {e}")
 
         # Make sure log directory exists
         try:
             os.makedirs(log_dir, exist_ok=True)
             print(f"Ensured log directory exists: {log_dir}")
         except Exception as e:
-            print(f"Error creating log directory: {e}")
+            print(f"Error with log directory: {e}")
 
         # Initialize logger with extra error handling
         try:
@@ -36,8 +48,6 @@ class DatabaseService:
             print(f"Error initializing logger: {e}")
             # Create a basic logger or use print statements
             self.logger = SimpleLogger()
-
-        self._ensure_directory_exists()
 
         try:
             self._initialize_database()
@@ -51,11 +61,29 @@ class DatabaseService:
     def _ensure_directory_exists(self):
         """Make sure the directory with the database file exists."""
         try:
-            os.makedirs(os.path.dirname(self.db_path), exist_ok=True)
-            self.logger.debug(f"Ensured directory exists for database at: {self.db_path}")
+            db_dir = os.path.dirname(self.db_path)
+            print(f"Ensuring directory exists: {db_dir}")
+
+            if not os.path.exists(db_dir):
+                os.makedirs(db_dir, exist_ok=True)
+                print(f"Created directory: {db_dir}")
+            else:
+                print(f"Directory already exists: {db_dir}")
+
+            # Test if directory is writable
+            test_file = os.path.join(db_dir, "write_test.txt")
+            try:
+                with open(test_file, 'w') as f:
+                    f.write("Test")
+                os.remove(test_file)
+                print(f"Directory {db_dir} is writable")
+            except Exception as e:
+                print(f"Directory {db_dir} is NOT writable: {e}")
+
         except Exception as e:
-            self.logger.error(f"Failed to create directory for database: {e}")
-            raise
+            print(f"Error ensuring directory exists: {e}")
+            import traceback
+            print(traceback.format_exc())
 
     def _initialize_database(self):
         """Create the session_tasks table if it doesn't exist."""
@@ -90,7 +118,7 @@ class DatabaseService:
                     self.logger.info(f"Directory already exists: {db_dir}")
 
                 # Connect with timeout
-                conn = sqlite3.connect(self.db_path, timeout=10)
+                conn = sqlite3.connect(self.db_path, timeout=30)
                 cursor = conn.cursor()
 
                 try:
@@ -336,6 +364,13 @@ class DatabaseService:
 
     def _is_database_locked(self):
         """Check if the database is currently locked by another process."""
+        print(f"Checking if database is locked: {self.db_path}")
+
+        # Check if the database file exists
+        if not os.path.exists(self.db_path):
+            print(f"Database file does not exist: {self.db_path}")
+            return False
+
         # Check if the journal file exists (indicating unfinished transaction)
         journal_path = self.db_path + "-journal"
         wal_path = self.db_path + "-wal"
@@ -343,16 +378,21 @@ class DatabaseService:
         journal_exists = os.path.exists(journal_path)
         wal_exists = os.path.exists(wal_path)
 
+        print(f"Lock indicators: journal={journal_exists}, wal={wal_exists}")
+
         if journal_exists or wal_exists:
-            self.logger.warning(f"Found lock indicators: journal={journal_exists}, wal={wal_exists}")
             return True
 
         # Try a test connection
         try:
             conn = sqlite3.connect(self.db_path, timeout=1)
+            cursor = conn.cursor()
+            cursor.execute("SELECT 1")
             conn.close()
+            print("Database connection test successful")
             return False
-        except sqlite3.OperationalError:
+        except sqlite3.OperationalError as e:
+            print(f"Database appears to be locked: {e}")
             return True
 
     def _initialize_database_fallback(self):

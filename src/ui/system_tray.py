@@ -52,37 +52,24 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 
     def _set_initial_icon(self):
         """Set the initial icon for the system tray"""
-        # Try to use custom icon for stopped state
-        icon_path = os.path.join(get_project_root(), 'resources', 'tray_icon.png')
-        self.logger.debug(f"Attempting to load initial icon from: {icon_path}")
-
-        if os.path.exists(icon_path):
-            self.logger.debug(f"Using custom icon from: {icon_path}")
-            icon = QtGui.QIcon(icon_path)
-            if not icon.isNull():
+        try:
+            # Simplify by using QStyle standard icons which are guaranteed to work
+            if self.parent_window:
+                icon = self.parent_window.style().standardIcon(QtWidgets.QStyle.SP_ComputerIcon)
                 self.setIcon(icon)
                 return
             else:
-                self.logger.warning(f"Icon loaded but is null: {icon_path}")
-        else:
-            self.logger.warning(f"Custom icon not found: {icon_path}")
-
-        # Fallback to theme or standard icon
-        self.logger.warning("Custom icon not found or invalid, using fallback")
-        icon = QtGui.QIcon.fromTheme("appointment-soon")
-        if icon.isNull():
-            # Fallback to a standard icon from the style
-            if self.parent_window:
-                self.logger.debug("Using fallback icon from parent style")
-                icon = self.parent_window.style().standardIcon(QtWidgets.QStyle.SP_ComputerIcon)
-            else:
-                self.logger.warning("No parent provided for fallback icon")
                 # Create a basic icon as last resort
                 pixmap = QtGui.QPixmap(16, 16)
                 pixmap.fill(QtGui.QColor(128, 128, 128))
                 icon = QtGui.QIcon(pixmap)
-
-        self.setIcon(icon)
+                self.setIcon(icon)
+        except Exception as e:
+            print(f"Error setting system tray icon: {e}")
+            # Create an emergency fallback icon
+            pixmap = QtGui.QPixmap(16, 16)
+            pixmap.fill(QtGui.QColor(255, 0, 0))
+            self.setIcon(QtGui.QIcon(pixmap))
 
     def _get_icon(self, standard_icon):
         """
@@ -295,86 +282,22 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
     def _set_icon_for_state(self, state):
         """
         Set the system tray icon based on the current timer state.
-
-        Args:
-            state (TimerState): Current state of the timer
+        Simplified to use standard icons for reliability.
         """
         try:
-            # Print to console for debugging regardless of logger
-            print(f"Setting system tray icon for state: {state.name}")
-
-            if hasattr(self, 'logger'):
-                self.logger.debug(f"Setting system tray icon for state: {state.name}")
-
-            # Default to using a colored pixmap if resources can't be loaded
             if state == TimerState.RUNNING:
-                color = QtGui.QColor(0, 255, 0)  # Green for running
-                icon_name = "tray_icon_running.png"
+                # Use standard Play icon for running
+                icon = self.parent_window.style().standardIcon(QtWidgets.QStyle.SP_MediaPlay)
             elif state in [TimerState.PAUSED, TimerState.IDLE]:
-                color = QtGui.QColor(255, 165, 0)  # Orange for paused/idle
-                icon_name = "tray_icon_idle.png"
-            else:  # STOPPED or any other state
-                color = QtGui.QColor(128, 128, 128)  # Gray for stopped
-                icon_name = "tray_icon.png"
+                # Use standard Pause icon for paused
+                icon = self.parent_window.style().standardIcon(QtWidgets.QStyle.SP_MediaPause)
+            else:  # STOPPED
+                # Use standard Stop icon for stopped
+                icon = self.parent_window.style().standardIcon(QtWidgets.QStyle.SP_MediaStop)
 
-            # Try different paths to find the icon
-            icon_found = False
-
-            # Path options to try
-            paths_to_try = [
-                # Try executable directory first for packaged app
-                os.path.join(os.path.dirname(sys.executable), "resources", icon_name),
-                # Try current directory
-                os.path.join("resources", icon_name),
-                # Try absolute path via a function
-                None  # Will be replaced by get_project_root path if available
-            ]
-
-            # Try to add path from get_project_root
-            try:
-                from src.utils.path_utils import get_project_root
-                project_root = get_project_root()
-                if project_root:
-                    paths_to_try[2] = os.path.join(project_root, "resources", icon_name)
-            except Exception as e:
-                print(f"Error getting project root: {e}")
-                # Keep None as a placeholder
-
-            # Try each path until an icon is found
-            for path in paths_to_try:
-                if path is None:
-                    continue
-
-                try:
-                    print(f"Trying icon path: {path}")
-                    if os.path.exists(path):
-                        icon = QtGui.QIcon(path)
-                        if not icon.isNull():
-                            self.setIcon(icon)
-                            print(f"Successfully set icon from: {path}")
-                            icon_found = True
-                            break
-                except Exception as e:
-                    print(f"Error loading icon from {path}: {e}")
-
-            # If no icon was found, create a colored rectangle
-            if not icon_found:
-                print("No icon found, creating colored pixmap")
-                pixmap = QtGui.QPixmap(16, 16)
-                pixmap.fill(color)
-                icon = QtGui.QIcon(pixmap)
-                self.setIcon(icon)
-
+            self.setIcon(icon)
         except Exception as e:
-            print(f"Error in _set_icon_for_state: {e}")
-            # Create a fallback icon as last resort
-            try:
-                pixmap = QtGui.QPixmap(16, 16)
-                pixmap.fill(QtGui.QColor(255, 0, 0))  # Red for error
-                icon = QtGui.QIcon(pixmap)
-                self.setIcon(icon)
-            except:
-                print("Failed to create even a fallback icon")
+            print(f"Error setting icon for state: {e}")
 
     def show_message(self, title, message, icon=QtWidgets.QSystemTrayIcon.Information, duration=5000):
         """

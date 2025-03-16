@@ -7,6 +7,71 @@ from src.utils.path_utils import get_project_root
 import os
 import datetime
 
+
+def handle_exception(exc_type, exc_value, exc_traceback):
+    """Global exception handler to log all unhandled exceptions to a file"""
+    import traceback
+    from datetime import datetime
+
+    # Format the error
+    error_msg = "".join(traceback.format_exception(exc_type, exc_value, exc_traceback))
+
+    # Write to a file in user's home directory (guaranteed to be writable)
+    try:
+        error_log = os.path.join(os.path.expanduser("~"), "productivity_tracker_error.log")
+        with open(error_log, "a") as f:
+            f.write(f"\n[{datetime.now()}] UNHANDLED EXCEPTION:\n")
+            f.write(error_msg)
+            f.write("\n" + "-" * 80 + "\n")
+    except:
+        pass  # If even this fails, we're out of options
+
+    # Call the default exception handler
+    sys.__excepthook__(exc_type, exc_value, exc_traceback)
+
+
+# Set the global exception hook
+sys.excepthook = handle_exception
+
+
+if "--debug" in sys.argv:
+    from src.utils.path_utils import debug_app_paths
+    debug_app_paths()
+
+
+def test_file_system():
+    """Test basic file system access at startup"""
+    print("=== TESTING FILE SYSTEM ACCESS ===")
+    home_dir = os.path.expanduser("~")
+    print(f"Home directory: {home_dir}")
+
+    # Test writing to home directory
+    try:
+        test_path = os.path.join(home_dir, "productivity_test.txt")
+        with open(test_path, "w") as f:
+            f.write("Test file in home directory")
+        print(f"Successfully wrote to home directory: {test_path}")
+        os.remove(test_path)
+    except Exception as e:
+        print(f"Failed to write to home directory: {e}")
+
+    # Test writing to app directory
+    app_dir = os.path.join(home_dir, "ProductivityTracker")
+    try:
+        os.makedirs(app_dir, exist_ok=True)
+        test_path = os.path.join(app_dir, "test.txt")
+        with open(test_path, "w") as f:
+            f.write("Test file in app directory")
+        print(f"Successfully wrote to app directory: {test_path}")
+        os.remove(test_path)
+    except Exception as e:
+        print(f"Failed to write to app directory: {e}")
+
+    print("=== FILE SYSTEM TEST COMPLETE ===")
+
+
+test_file_system()
+
 # Setup basic error handling and logging before anything else
 try:
     # Create debug log in user's home directory
